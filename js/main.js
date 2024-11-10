@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
         lazyloadFn(item, arr, limit)
         const clickBtnFn = () => {
           const lastItemLength = lazyloadFn(item, arr, limit)
-          fjGallery(item, 'appendImages', item.querySelectorAll(`.fj-gallery-item:nth-last-child(-n+${lastItemLength})`))
+          fjGallery(item, 'append/img/images', item.querySelectorAll(`.fj-gallery-item:nth-last-child(-n+${lastItemLength})`))
           btf.loadLightbox(item.querySelectorAll('img'))
           lastItemLength < limit && item.nextElementSibling.removeEventListener('click', clickBtnFn)
         }

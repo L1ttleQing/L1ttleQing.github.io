@@ -235,7 +235,7 @@ const btf = {
           Thumbs: {
             showOnStart: false
           },
-          Images: {
+          /img/images: {
             Panzoom: {
               maxScale: 4
             }
