@@ -415,7 +415,8 @@ document.addEventListener('DOMContentLoaded', function () {
  *  toc
  */
   const tocFn = function () {
-    const $cardTocLayout = document.getElementById('rightside-toc')
+    const $cardTocLayout = document.getElementById('card-toc')
+    // const $cardTocLayout = document.getElementById('rightside-toc')
     const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0]
     const $tocLink = $cardToc.querySelectorAll('.toc-link')
     const $article = document.getElementById('article-container')
@@ -532,8 +533,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const currentActive = $tocLink[currentIndex]
       currentActive.classList.add('active')
 
-      var offset = -currentIndex * 1.5 + 4.25
-      $cardToc.style.translate = "0 " + offset + "rem"
+      // var offset = -currentIndex * 1.5 + 4.25
+      // $cardToc.style.translate = "0 " + offset + "rem"
 
       setTimeout(() => {
         autoScrollToc(currentActive)
