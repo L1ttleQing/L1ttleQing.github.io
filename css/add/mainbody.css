@@ -140,15 +140,6 @@
 #mainbody #content_rightside #rightside-toc span.toc-text {
   color: #000;
 }
-#mainbody #content_rightside #rightside-toc .toc-box {
-  height: 10rem;
-  width: 100%;
-  overflow: hidden;
-}
-#mainbody #content_rightside #rightside-toc .toc-content {
-  translate: 0 4.25rem;
-  transition: all 0.5s;
-}
 #mainbody #content_rightside #rightside-toc ol {
   padding: 0;
   margin: 0;
@@ -196,52 +187,14 @@
   transform-origin: 2.5rem 0.75rem;
   font-weight: bolder;
 }
-#mainbody #content_rightside #rightside-toc .toc-item {
-  transition: all 0.5s ease-in-out;
-  opacity: 0.5;
-}
-#mainbody #content_rightside #rightside-toc .toc-item.toc-level-1:before {
-  content: " ";
-  margin: 0.65rem 0.4rem 0.65rem 0;
-  width: 1rem;
-  height: 0.2rem;
-  border-radius: 0.1rem;
-  background: #000;
-}
-#mainbody #content_rightside #rightside-toc .toc-item.toc-level-2:before {
-  content: " ";
-  margin: 0.65rem 0.7rem 0.65rem 0;
-  width: 1rem;
-  height: 0.2rem;
-  border-radius: 0.1rem;
-  background: #000;
-}
-#mainbody #content_rightside #rightside-toc .toc-item.toc-level-3:before {
-  content: " ";
-  margin: 0.65rem 1.2rem 0.65rem 0;
-  width: 0.8rem;
-  height: 0.2rem;
-  border-radius: 0.1rem;
-  background: #000;
-}
-#mainbody #content_rightside #rightside-toc .toc-item.toc-level-4:before,
-#mainbody #content_rightside #rightside-toc .toc-item.toc-level-5:before,
-#mainbody #content_rightside #rightside-toc .toc-item.toc-level-6:before {
-  content: " ";
-  margin: 0.65rem 1.7rem 0.65rem 0;
-  width: 0.6rem;
-  height: 0.2rem;
-  border-radius: 0.1rem;
-  background: #000;
-}
-#mainbody #content_rightside #rightside-toc .toc-item.active {
+#mainbody #content_rightside #rightside-toc .toc-link.active {
   transition: all 0.5s ease-in-out;
   opacity: 1;
 }
-#mainbody #content_rightside #rightside-toc .toc-item.active .toc-child {
+#mainbody #content_rightside #rightside-toc .toc-link.active .toc-child {
   display: block;
 }
-#mainbody #content_rightside #rightside-toc .toc-item:hover {
+#mainbody #content_rightside #rightside-toc .toc-link:hover {
   opacity: 1;
 }
 #mainbody #content_rightside #rightside-button {
@@ -289,20 +242,6 @@
 }
 [data-theme="dark"] #mainbody #content_rightside #rightside-toc .toc-link:hover span.toc-text {
   color: #fff;
-}
-[data-theme="dark"] #mainbody #content_rightside #rightside-toc .toc-item.toc-level-1:before {
-  background: #fff;
-}
-[data-theme="dark"] #mainbody #content_rightside #rightside-toc .toc-item.toc-level-2:before {
-  background: #fff;
-}
-[data-theme="dark"] #mainbody #content_rightside #rightside-toc .toc-item.toc-level-3:before {
-  background: #fff;
-}
-[data-theme="dark"] #mainbody #content_rightside #rightside-toc .toc-item.toc-level-4:before,
-[data-theme="dark"] #mainbody #content_rightside #rightside-toc .toc-item.toc-level-5:before,
-[data-theme="dark"] #mainbody #content_rightside #rightside-toc .toc-item.toc-level-6:before {
-  background: #fff;
 }
 [data-theme="dark"] #mainbody #content_rightside #rightside-button button {
   background: var(--card-bg);
