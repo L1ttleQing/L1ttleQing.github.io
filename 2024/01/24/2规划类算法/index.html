@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>规划类模型相关 | L1ttleQing的小站</title><meta name="keywords" content="数据科学"><meta name="author" content="L1ttleQing"><meta name="copyright" content="L1ttleQing"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="真是规规又划划啊。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="规划类模型相关">
+<meta property="og:url" content="http://l1ttleqing.github.io/2024/01/24/2%E8%A7%84%E5%88%92%E7%B1%BB%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="L1ttleQing的小站">
+<meta property="og:description" content="真是规规又划划啊。">
+<meta property="og:locale">
+<meta property="og:image" content="http://l1ttleqing.github.io/img/md2.png">
+<meta property="article:published_time" content="2024-01-24T13:29:10.000Z">
+<meta property="article:modified_time" content="2024-11-27T18:13:57.725Z">
+<meta property="article:author" content="L1ttleQing">
+<meta property="article:tag" content="数据科学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://l1ttleqing.github.io/img/md2.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://l1ttleqing.github.io/2024/01/24/2%E8%A7%84%E5%88%92%E7%B1%BB%E7%AE%97%E6%B3%95/"><link rel="preconnect" href="//cdn1.tianli0.top"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdnjs.sourcegcdn.com/ajax/libs/jquery/3.6.0/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdnjs.sourcegcdn.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdnjs.sourcegcdn.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdnjs.sourcegcdn.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js',
+      css: 'https://cdnjs.sourcegcdn.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-28 02:13:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" /><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"Jws8lO85zPmXkSKj",ck:"Jws8lO85zPmXkSKj"})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="simply-cha-top"></div><div class="is-center" id="sidebar-avatar"><div class="avatar-img"><img src="/img/head_sculpture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">L1ttleQing</div><div class="author-info__description">越悲怆的时候我越想嬉皮</div></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/L1ttleQing"><i class="fab fa-github"></i><span>主页</span></a><div class="menu-info-social-icons is-center"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-100px;"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div></div><div class="simply-cha"></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/">L1ttleQing的小站</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-100px;"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div></div></div><div id="navFn"><div id="search-button"><a class="social-icon search"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg><span> 搜索</span></a></div><div id="darkmodeBt"><a class="darkmode switch"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-deng1"></use></svg><span id="darkmode-switch"> 关灯</span></a></div><div id="toggle-menu"><a class="site-page"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mulu"></use></svg></a></div></div></div></nav></header><div id="mainbody"><div id="content_leftside"><div id="left_menu"><div class="leftside-social"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div><div class="leftside-contents"><span id="read-percent">0</span></div><div class="leftside-comment"><a href="#post-comment" title="要去留言吗？"><i class="fa-lg fas fa-comment"></i></a></div><div class="leftside-qq" title="来糖果屋聊天噻！"><i class="fa-lg fas fa-qrcode"></i></div><div class="leftside-rmb"><a title="柿还在施工的捐赠页！不给看！"><i class="fa-lg fas fa-money-check-dollar"></i></a></div></div><div id="left_display"><div class="candy_qrcode"><img src="./img/candy-qr.png"></div></div></div><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">规划类模型相关</h1><div id="post-meta"><div class="tag-cloud-list is-center"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 1.5em; color: rgb(172, 138, 186)">数据科学</a></div><div class="meta-firstline"><span class="post-meta-date"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-24T13:29:10.000Z" title="发表于 2024-01-24 21:29:10">2024-01-24</time><span class="post-meta-separator">|</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-shijian"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-27T18:13:57.725Z" title="更新于 2024-11-28 02:13:57">2024-11-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-fenlei1"></use></svg><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/">学习心得</a></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="规划类模型相关"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>数学规划是运筹学的一个分支，研究在给定的条件下（约束条件），如何按照某一标准（目标函数）寻求计划的最佳方案。也就是求目标函数在一定约束条件下的极值的问题。不同类型的规划问题需要采用不同的建模方法和求解算法，因此在解决具体问题时需要根据问题特点选择合适的方法进行建模和求解。</p>
+<p>数学规划问题通常可以分为以下几类：</p>
+<ul>
+<li><p>线性规划（Linear Programming, LP）：目标函数和约束条件均为线性的规划问题。例如资源分配、生产计划、运输优化等。</p>
+</li>
+<li><p>非线性规划（Nonlinear Programming, NLP）：目标函数和&#x2F;或约束条件包含非线性部分的规划问题。求解相对复杂，涉及到局部最优解和全局最优解的搜索。</p>
+</li>
+<li><p>整数规划（Integer Programming，IP）：在线性规划的基础上，自变量需要取整数值的优化问题。</p>
+</li>
+<li><p>二次规划（Quadratic Programming，QP）：目标函数为二次函数，约束条件为线性函数的优化问题。</p>
+</li>
+</ul>
+<p>我们主要讨论泛用性较高的<strong>线性规划</strong>和<strong>非线性规划</strong>。</p>
+<h1 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h1><p>要解决线性规划问题，首先需要定义决策变量、目标函数和约束条件。然后，可以使用MATLAB中的优化函数对问题进行求解。</p>
+<p>举一个例子,要求解的线性规划问题的目标是最大化目标函数 f &#x3D; -5a - 4b - 6c，其中a、b、c是决策变量。</p>
+<p>约束条件为：</p>
+<blockquote>
+<p>a - b + c ≤ 20<br>3a + 2b + 4c ≤ 42<br>3a + 2b ≤ 30<br>a、b、c ≥ 0</p>
+</blockquote>
+<p>为了解决这个问题，我们将调用 linprog 函数进行线性规划求解，代码是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[x, fval] = linprog(c, A, b, Aeq, beq, lb, ub)</span><br></pre></td></tr></table></figure>
+<p>其中的参数含义如下：</p>
+<ul>
+<li><p>c：目标函数的系数向量。它是一个列向量，表示目标函数中每个决策变量的系数。</p>
+</li>
+<li><p>A：不等式约束条件左侧的系数矩阵。它是一个矩阵，每一行对应一个不等式约束条件，并且每一列对应一个决策变量的系数。</p>
+</li>
+<li><p>b：不等式约束条件右侧的常数向量。它是一个列向量，表示不等式约束条件的右侧值。</p>
+</li>
+<li><p>Aeq：等式约束条件左侧的系数矩阵。它是一个矩阵，每一行对应一个等式约束条件，并且每一列对应一个决策变量的系数。</p>
+</li>
+<li><p>beq：等式约束条件右侧的常数向量。它是一个列向量，表示等式约束条件的右侧值。</p>
+</li>
+<li><p>lb：决策变量的下界向量。它是一个列向量，表示每个决策变量的下限值。如果某个决策变量没有下限，则对应的值设为 -Inf，如果不写就是没有。</p>
+</li>
+<li><p>ub：决策变量的上界向量。它是一个列向量，表示每个决策变量的上限值。如果某个决策变量没有上限，则对应的值设为 Inf,如果不写就是没有。</p>
+</li>
+</ul>
+<p>要使用这个代码，我们就需要把问题表示成线性规划问题的标准型。在MATLAB中，线性规划问题的标准型指的是形如下面形式的线性规划问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">minimize c^T * x</span><br><span class="line">subject to:</span><br><span class="line">    A * x &lt;= b</span><br><span class="line">    Aeq * x = beq</span><br><span class="line">    lb &lt;= x &lt;= ub</span><br></pre></td></tr></table></figure>
+<p>这里都是“小于”形式，包括求解也是求最小值。如果有“大于”的形式出现，则等式两边同时加一个负号就可以了。</p>
+<p>如果约束条件是大于，在约束条件里加上负号。</p>
+<p>如果整个问题求的是最大值，我们先在c（目标函数的系数向量）里把目标函数的系数全部变号，再把最后求解的值变号即可。也就是说，**max f(x) &#x3D; min -f(x)**。</p>
+<p>解决上述例子的代码是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">c = [5 4 6]&#x27;;  % 加单引号表示转置，这里需要变号</span><br><span class="line"></span><br><span class="line">A = [1 -1 1;</span><br><span class="line">     3 2 4;</span><br><span class="line">     3 2 0];</span><br><span class="line">b = [20 42 30]&#x27;;   </span><br><span class="line">lb = [0 0 0]&#x27;; </span><br><span class="line">[x fval] = linprog(c, A, b, [], [], lb) </span><br><span class="line">fval = -fval % 要取负号，原来是求最大值，我们添加负号变成了max f(x) = min -f(x)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>例子随手改的，答案全是0。</p>
+<p>部分特殊情况：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%% 多个解的情况</span><br><span class="line">% 例如 ： min z = x1 + x2   s.t.  x1 + x2 &gt;= 10</span><br><span class="line">c = [1 1]&#x27;;   </span><br><span class="line">A = [-1 -1];</span><br><span class="line">b = -10;</span><br><span class="line">[x fval] = linprog(c, A, b)   % Aeq, beq, lb和ub我们都没写，意味着没有等式约束和上下界约束</span><br><span class="line">% x有多个解时，Matlab会给我们返回其中的一个解</span><br><span class="line"></span><br><span class="line">%% 不存在解的情况</span><br><span class="line">% 例如 ： min z = x1 + x2   s.t.  x1 + x2 = 10 、 x1 + 2*x2 &lt;= 8、 x1 &gt;=0 ，x2 &gt;=0 </span><br><span class="line">c = [1 1]&#x27;; </span><br><span class="line">A = [1 2];</span><br><span class="line">b = 8;</span><br><span class="line">Aeq = [1 1];</span><br><span class="line">beq = 10;</span><br><span class="line">lb = [0 0]&#x27;;</span><br><span class="line">[x fval] = linprog(c, A, b, Aeq, beq, lb)  % Linprog stopped because no point satisfies the constraints.（没有任何一个点满足约束条件）</span><br></pre></td></tr></table></figure>
+
+<h1 id="非线性规划"><a href="#非线性规划" class="headerlink" title="非线性规划"></a>非线性规划</h1><p>很显而易见的是，非线性规划是指目标函数或约束条件中包含非线性项的优化问题。也就是说，在非线性规划中，目标函数和约束条件可以是非线性的，即涉及到变量的非线性函数、乘积、幂等运算或其他非线性形式。</p>
+<p>举一个例子,要求解的非线性规划问题的目标是最大化目标函数f(x) &#x3D; x1^2 + x2^2 - x1*x2 - 2x1 - 5x2。</p>
+<p>约束条件为：</p>
+<blockquote>
+<p>-(x1-1)^2 + x2 &gt;&#x3D; 0<br>2x1 - 3x2 + 6 &gt;&#x3D; 0</p>
+</blockquote>
+<p>这两个不等式分别表示了在定义域内 x1 和 x2的取值范围限制。</p>
+<p>同样的，为了求解非线性规划问题，我们也需要把问题表示成非线性规划问题的标准型:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">minimize c^T * x</span><br><span class="line">subject to:</span><br><span class="line">    A * x &lt;= b , Aeq * x = beq; (线性不等式约束)</span><br><span class="line">    c(x) &lt;= 0 , ceq(x) = 0; （非线性不等式约束）</span><br><span class="line">    lb &lt;= x &lt;= ub;（上界，下界）</span><br></pre></td></tr></table></figure>
+
+<p>对于非线性规划，我们使用fmincon 函数，标准格式为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[x, fval, exitflag, output] = fmincon(fun, x0, A, b, Aeq, beq, lb, ub, nonlcon, options)</span><br></pre></td></tr></table></figure>
+
+<p>其中的参数含义如下：</p>
+<ul>
+<li><p>fun：目标函数，该函数接受一个自变量向量作为输入，并返回一个标量作为输出。</p>
+</li>
+<li><p>x0：自变量的初始值，是一个向量。与线性规划相比，再非线性规划问题里，对它的选取非常主要，因为非线性规划的算法求解是一个局部最优值。</p>
+</li>
+<li><p>A 和 b：不等式约束的系数矩阵和右侧系数。A 是一个 m×n的矩阵，b 是一个 m×1的向量，表示 m 个不等式约束的系数和右侧限制。</p>
+</li>
+<li><p>Aeq 和 beq：等式约束的系数矩阵和右侧系数。Aeq 是一个 p×n的矩阵，beq 是一个 p×1的向量，表示 p 个等式约束的系数和右侧限制。</p>
+</li>
+<li><p>lb 和 ub：自变量的下界和上界，分别是 n×1的向量。若没有下界或上界，则使用 -inf 或 inf 表示。</p>
+</li>
+<li><p>nonlcon：非线性约束函数，该函数接受一个自变量向量作为输入，并返回一个向量作为输出，表示非线性约束的结果。</p>
+</li>
+<li><p>options：优化选项，可以使用 optimoptions 函数创建一个选项对象，也可以使用 optimset 函数创建一个选项结构体。</p>
+</li>
+</ul>
+<p>需要注意，这里的fun和nonlcon是需要自己写成函数形式的。</p>
+<p>对于fun,可以任意取名，到时候会被fmincon函数调用, 它实际上就是目标函数,输入值x实际上就是决策变量，由x1和x2组成的向量，代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function f = fun1(x)</span><br><span class="line">    f = -x(1)^2-x(2)^2 +x(1)*x(2)+2*x(1)+5*x(2) ; </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>这里的f实际上就是目标函数，函数的返回值也是f。fun1是函数名称，保存的m文件和函数名称得一致，也要为fun1.m。</p>
+<p>对于nonlcon，和fun类似，输入值x实际上就是决策变量，由x1和x2组成的一个向量。返回值有两个，一个是非线性不等式约束c，一个是非线性等式约束ceq。nonlfun1是函数名称，到时候会被fmincon函数调用。保存的m文件和函数名称得一致，也要为nonlfun1.m</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function [c,ceq] = nonlfun1(x)</span><br><span class="line">   c = [(x(1)-1)^2-x(2)];   %x1 写成 x(1)</span><br><span class="line">   ceq = [];  % 不存在非线性等式约束，所以用[]表示</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+
+<p>现在还有一个问题，就是初始值的选择。初始值指的是优化算法开始搜索的起点，这个起点可以是一个参数向量、一组变量的取值，或者是一个解空间中的初始点。优化算法会根据这个初始值开始搜索最优解或局部最优解。如果选择的初始值不好，可能会导致优化算法无法在可接受的时间内找到全局最优解。在更极端的情况下，选择不当的初始值可能导致优化算法陷入无限循环或者发散。</p>
+<p>在这里，我们使用蒙特卡洛算法处理。完整代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">clc,clear;</span><br><span class="line">n=10000000; %生成的随机数组数</span><br><span class="line">x1=unifrnd(-100,100,n,1);  % 生成在[-100,100]之间均匀分布的随机数组成的n行1列的向量构成x1</span><br><span class="line">x2=unifrnd(-100,100,n,1);  % 生成在[-100,100]之间均匀分布的随机数组成的n行1列的向量构成x2，这两步具体情况具体分析</span><br><span class="line">fmin=+inf; % 初始化函数f的最小值为正无穷,后续再更新</span><br><span class="line">for i=1:n</span><br><span class="line">    x = [x1(i), x2(i)];  %构造x向量, 这里千万别写成了：x =[x1, x2]</span><br><span class="line">    if ((x(1)-1)^2-x(2)&lt;=0)  &amp; (-2*x(1)+3*x(2)-6 &lt;= 0)     % 判断是否满足约束条件</span><br><span class="line">        result = -x(1)^2-x(2)^2 +x(1)*x(2)+2*x(1)+5*x(2) ;  % 如果满足条件，就计算函数值</span><br><span class="line">        if  result  &lt; fmin  </span><br><span class="line">            fmin = result;  </span><br><span class="line">            x0 = x;  % 更新</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">disp(&#x27;蒙特卡罗选取的初始值为：&#x27;); disp(x0)</span><br><span class="line"></span><br><span class="line">A = [-2 3]; b = 6;</span><br><span class="line">[x,fval] = fmincon(@fun1,x0,A,b,[],[],[],[],@nonlfun1)</span><br><span class="line">fval = -fval  </span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a></div><div class="post_share"><div class="social-share" data-image="/img/md2.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.sourcegcdn.com/ajax/libs/social-share.js/1.0.16/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.sourcegcdn.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" defer></script></div></div><div class="end is-center">end</div><div id="post-comment"><div class="comment-head is-center"><div class="comment-headline"><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head_sculpture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">L1ttleQing</div><div class="author-info__description">越悲怆的时候我越想嬉皮</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/L1ttleQing"><i class="fab fa-github"></i><span>主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">重构了界面，去除冗余结构，哦耶！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">线性规划</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92"><span class="toc-number">2.</span> <span class="toc-text">非线性规划</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/31/%E8%B9%89%E8%B7%8E%E5%8E%BB/" title="蹉跎去"><img src="/img/ctqq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="蹉跎去"/></a><div class="content"><a class="title" href="/2025/10/31/%E8%B9%89%E8%B7%8E%E5%8E%BB/" title="蹉跎去">蹉跎去</a><time datetime="2025-10-31T03:09:00.000Z" title="发表于 2025-10-31 11:09:00">2025-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/22/%E5%AE%B9%E6%98%93%E8%8E%AB%E7%9B%B8%E5%82%AC/" title="容易莫相催"><img src="/img/ctq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="容易莫相催"/></a><div class="content"><a class="title" href="/2025/02/22/%E5%AE%B9%E6%98%93%E8%8E%AB%E7%9B%B8%E5%82%AC/" title="容易莫相催">容易莫相催</a><time datetime="2025-02-22T03:09:00.000Z" title="发表于 2025-02-22 11:09:00">2025-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/08/1Springboot/" title="笔记 SpringBoot"><img src="/img/springboot.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记 SpringBoot"/></a><div class="content"><a class="title" href="/2025/02/08/1Springboot/" title="笔记 SpringBoot">笔记 SpringBoot</a><time datetime="2025-02-08T08:09:00.000Z" title="发表于 2025-02-08 16:09:00">2025-02-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/28/1mybatis/" title="笔记 Mybatis/plus"><img src="/img/mb.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记 Mybatis/plus"/></a><div class="content"><a class="title" href="/2025/01/28/1mybatis/" title="笔记 Mybatis/plus">笔记 Mybatis/plus</a><time datetime="2025-01-28T08:09:00.000Z" title="发表于 2025-01-28 16:09:00">2025-01-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/22/%E8%8B%8D%E8%8C%AB%E6%9D%A5%E6%97%B6/" title="苍茫来时"><img src="/img/cmls.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="苍茫来时"/></a><div class="content"><a class="title" href="/2025/01/22/%E8%8B%8D%E8%8C%AB%E6%9D%A5%E6%97%B6/" title="苍茫来时">苍茫来时</a><time datetime="2025-01-21T19:09:10.000Z" title="发表于 2025-01-22 03:09:10">2025-01-22</time></div></div></div></div></div></div></main><div id="content_rightside"><div id="rightside-toc"><div class="toc-box"></div></div></div></div><footer id="footer"><div class="wordcount"><span>L1ttleQing已经写了207.5k字。</span></br><span>相当于写完了一本巴金的《寒夜》</span></div><div class="footer-content"><div style="font-size: 0.7rem"><span id="timeDate">载入天数...</span><span> </span><span id="times">载入时分秒...</span><script src="/js/add/duration.js"></script></div></div></footer></div><div id="rightside"></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fymxlpNGPzfrWOWcfY71mwBV-gzGzoHsz',
+      appKey: 'I0VLNN103CyrzIXBIh7eFsH5',
+      placeholder: '昵称为必填项...',
+      avatar: 'mp',
+      meta: 'nick,mail'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn1.tianli0.top/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async src="//at.alicdn.com/t/font_2749059_1lswi5j6yqg.js"></script><script src="/js/add/nav.js"></script><script src="/js/add/leftsidemenu.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn1.tianli0.top/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn1.tianli0.top/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

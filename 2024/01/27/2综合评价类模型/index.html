@@ -1,0 +1,294 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>综合评价类模型 | L1ttleQing的小站</title><meta name="keywords" content="数据科学"><meta name="author" content="L1ttleQing"><meta name="copyright" content="L1ttleQing"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我的评价是，使用综合评价模型。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="综合评价类模型">
+<meta property="og:url" content="http://l1ttleqing.github.io/2024/01/27/2%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="L1ttleQing的小站">
+<meta property="og:description" content="我的评价是，使用综合评价模型。">
+<meta property="og:locale">
+<meta property="og:image" content="http://l1ttleqing.github.io/img/md3.png">
+<meta property="article:published_time" content="2024-01-27T13:22:10.000Z">
+<meta property="article:modified_time" content="2024-02-01T08:10:03.045Z">
+<meta property="article:author" content="L1ttleQing">
+<meta property="article:tag" content="数据科学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://l1ttleqing.github.io/img/md3.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://l1ttleqing.github.io/2024/01/27/2%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E7%B1%BB%E6%A8%A1%E5%9E%8B/"><link rel="preconnect" href="//cdn1.tianli0.top"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdnjs.sourcegcdn.com/ajax/libs/jquery/3.6.0/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdnjs.sourcegcdn.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdnjs.sourcegcdn.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdnjs.sourcegcdn.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js',
+      css: 'https://cdnjs.sourcegcdn.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-01 16:10:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" /><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"Jws8lO85zPmXkSKj",ck:"Jws8lO85zPmXkSKj"})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="simply-cha-top"></div><div class="is-center" id="sidebar-avatar"><div class="avatar-img"><img src="/img/head_sculpture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">L1ttleQing</div><div class="author-info__description">越悲怆的时候我越想嬉皮</div></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/L1ttleQing"><i class="fab fa-github"></i><span>主页</span></a><div class="menu-info-social-icons is-center"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-100px;"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div></div><div class="simply-cha"></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/">L1ttleQing的小站</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-100px;"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div></div></div><div id="navFn"><div id="search-button"><a class="social-icon search"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg><span> 搜索</span></a></div><div id="darkmodeBt"><a class="darkmode switch"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-deng1"></use></svg><span id="darkmode-switch"> 关灯</span></a></div><div id="toggle-menu"><a class="site-page"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mulu"></use></svg></a></div></div></div></nav></header><div id="mainbody"><div id="content_leftside"><div id="left_menu"><div class="leftside-social"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div><div class="leftside-contents"><span id="read-percent">0</span></div><div class="leftside-comment"><a href="#post-comment" title="要去留言吗？"><i class="fa-lg fas fa-comment"></i></a></div><div class="leftside-qq" title="来糖果屋聊天噻！"><i class="fa-lg fas fa-qrcode"></i></div><div class="leftside-rmb"><a title="柿还在施工的捐赠页！不给看！"><i class="fa-lg fas fa-money-check-dollar"></i></a></div></div><div id="left_display"><div class="candy_qrcode"><img src="./img/candy-qr.png"></div></div></div><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">综合评价类模型</h1><div id="post-meta"><div class="tag-cloud-list is-center"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 1.5em; color: rgb(79, 132, 192)">数据科学</a></div><div class="meta-firstline"><span class="post-meta-date"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-27T13:22:10.000Z" title="发表于 2024-01-27 21:22:10">2024-01-27</time><span class="post-meta-separator">|</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-shijian"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-01T08:10:03.045Z" title="更新于 2024-02-01 16:10:03">2024-02-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-fenlei1"></use></svg><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/">学习心得</a></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>21分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="综合评价类模型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>当我们对事物进行评价时，通常会使用综合评价模型来综合考虑各个方面的因素。对于数学建模而言，综合评价模型是一种系统化的方法，通过将多个评价指标进行加权和综合，得出对事物整体的评价结果。它可以应用于各种领域和场景，例如产品评价、学生综合素质评价、企业绩效评估等。</p>
+<h1 id="层次分析法"><a href="#层次分析法" class="headerlink" title="层次分析法"></a>层次分析法</h1><p>层次分析法（Analytic Hierarchy Process，AHP）是一种用于进行多指标综合评价的方法，它可以帮助我们确定各个指标的权重，并最终得出综合评价结果。这是最基础的模型之一，其主要用于解决评价类问题，例如：选择哪种方案最好、哪位运动员或者员工表现的更优秀。</p>
+<p>层次分析法的基本思想是将一个复杂的问题分解成若干个层次，从而形成一个层次结构。每一层次包含若干个指标或因素，在进行评价时，我们需要对各个指标进行比较和权重计算，以确定它们在整个层次结构中的相对重要程度。假设我们要评估三种手机品牌（A、B、C）的性能，我们选择了以下指标：屏幕质量、摄像头性能和电池续航。我们需要对这三个指标进行两两比较，并根据比较结果给出权重值。</p>
+<p>首先，你要确定一些重要的指标，比如屏幕质量、摄像头性能和电池续航。然后，你需要比较这些指标之间的相对重要程度。比如，你可能认为摄像头性能对你来说更重要，因为你经常拍照或者视频通话。接下来，你需要对每个指标进行进一步的比较。比如，你要比较不同手机的屏幕质量。你可以列出几个备选手机，并给它们打分。然后，你可以将这些分数转化为相对权重，用来表示在整个层次结构中的重要程度。最后，根据这些权重来做出决策。比如，如果一个手机在屏幕质量方面得分很高，并且屏幕质量在整个层次结构中的权重也很高，那么你可能会倾向于选择这款手机。</p>
+<p>需要注意的是，层次分析法通过构建一个判断矩阵来进行两两比较，从而得到各个指标之间的权重值。在进行两两比较时，我们需要确保判断矩阵是一致的，即各个比较的结果相互符合。判断矩阵有时可能会出现矛盾情况。这种矛盾可能是由于主观判断的不一致或者信息不完整所导致的，这种情况很容易出现且很难被直接察觉到。以下是一个简化的例子：</p>
+<p>假设我们的判断矩阵如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">        屏幕质量     摄像头性能   电池续航</span><br><span class="line">屏幕质量    1         3         2</span><br><span class="line">摄像头性能   1/3      1         1/2</span><br><span class="line">电池续航    1/2       2         1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>从判断矩阵可以看出，我们认为屏幕质量比摄像头性能好3倍，而摄像头性能比电池续航好2倍，同时电池续航比屏幕质量好1&#x2F;2倍。这样的比较存在矛盾，判断矩阵存在较大的一致性问题。在这种情况下，我们需要重新检查和修改判断矩阵，可能需要重新进行比较并调整权重值，以消除矛盾并提高一致性。这样做可以确保判断矩阵符合层次分析法的原则和要求，从而得到更准确和可靠的评价结果。</p>
+<p>为了解决这个问题，我们需要进行一致性检验。</p>
+<p>一致性检验是确保我们所构建的判断矩阵是合理和可靠的关键步骤。一致性检验的目的是验证判断矩阵中的数字是否具有内在的一致性。如果判断矩阵不够一致，那么权重计算可能会失真，从而影响最终的评价结果。在进行一致性检验时，我们使用一致性指标（Consistency Index, CI）和一致性比率（Consistency Ratio, CR）来评估判断矩阵的一致性程度。CI是通过计算判断矩阵的最大特征值与矩阵大小的差异得出的，而CR则是将CI与一个随机一致性指标进行比较。如果CR的值小于某个预定的阈值（通常为0.1），那么判断矩阵可以被认为是一致的。如果CR的值大于阈值，那么判断矩阵存在较大的一致性问题，需要重新进行比较和修改。</p>
+<p>在通过一致性检验后，根据每个指标的权重值，将各个指标的得分进行加权求和，得到最终的综合评价结果。</p>
+<p>完整代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">disp(&#x27;请输入判断矩阵A&#x27;)</span><br><span class="line">A = input(&#x27;A = &#x27;);</span><br><span class="line"></span><br><span class="line">[n, n] = size(A);</span><br><span class="line"></span><br><span class="line">% 方法1：算术平均法求权重</span><br><span class="line">Sum_A = sum(A);</span><br><span class="line">SUM_A = repmat(Sum_A, n, 1);</span><br><span class="line">Stand_A = A ./ SUM_A;</span><br><span class="line"></span><br><span class="line">disp(&#x27;算术平均法求权重的结果为：&#x27;);</span><br><span class="line">disp(sum(Stand_A, 2) ./ n);</span><br><span class="line"></span><br><span class="line">%几何平均法求权重</span><br><span class="line">Product_A = prod(A, 2);</span><br><span class="line">Product_n_A = Product_A .^ (1/n);</span><br><span class="line">disp(&#x27;几何平均法求权重的结果为：&#x27;);</span><br><span class="line">disp(Product_n_A ./ sum(Product_n_A));</span><br><span class="line"></span><br><span class="line">% 特征值法求权重</span><br><span class="line">[V, D] = eig(A);</span><br><span class="line">Max_eig = max(max(D));</span><br><span class="line">[r, c] = find(D == Max_eig, 1);</span><br><span class="line">disp(&#x27;特征值法求权重的结果为：&#x27;);</span><br><span class="line">disp(V(:, c) ./ sum(V(:, c)));</span><br><span class="line"></span><br><span class="line">% 计算一致性比例CR</span><br><span class="line">CI = (Max_eig - n) / (n - 1);</span><br><span class="line">RI = [0 0.0001 0.52 0.89 1.12 1.26 1.36 1.41 1.46 1.49 1.52 1.54 1.56 1.58 1.59];  % RI理论上最多支持 n = 15</span><br><span class="line"></span><br><span class="line">CR = CI / RI(n);</span><br><span class="line">disp(&#x27;一致性指标CI = &#x27;);</span><br><span class="line">disp(CI);</span><br><span class="line">disp(&#x27;一致性比例CR = &#x27;);</span><br><span class="line">disp(CR);</span><br><span class="line"></span><br><span class="line">% 根据CR的值判断一致性是否可接受</span><br><span class="line">if CR &lt; 0.10</span><br><span class="line">    disp(&#x27;因为CR &lt; 0.10，一致性检验通过。&#x27;);</span><br><span class="line">else</span><br><span class="line">    disp(&#x27;CR &gt;= 0.10，该判断矩阵A需要修改。&#x27;);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h1 id="TOPSIS法（优劣解距离法）"><a href="#TOPSIS法（优劣解距离法）" class="headerlink" title="TOPSIS法（优劣解距离法）"></a>TOPSIS法（优劣解距离法）</h1><p>当数据已知时，TOPSIS法是一种更常用的综合评价方法，它能充分利用原始数据的信息，更精确地反映各评价方案之间的差距。</p>
+<p>层次分析法存在一些小问题：</p>
+<ol>
+<li>评价的决策层不能太多，太多的话n会很大，所以判断矩阵和一致矩阵差异可能会很大。</li>
+<li>权重是我们自己打分定的，如果决策层中指标的数据是已知的，应该更好地利用这些数据来使得评价的更加准确。</li>
+</ol>
+<p>这些数据可能符合以下的指标：</p>
+<ul>
+<li>极大型（效益型）指标：越大（多）越好，比如成绩、GDP增速、企业利润</li>
+<li>极小型（成本型）指标：越小（少）越好，比如费用、坏品率、污染程度</li>
+<li>中间型指标：越接近某个值越好，比如水质量评估时的PH值</li>
+<li>区间型指标：落在某个区间最好，比如体温、水中植物性营养物量</li>
+</ul>
+<p>基本过程为，先将原始数据矩阵统一指标类型。最常用的是将所有的指标转化为极大型，称为指标正向化。因为不同指标有不同的评价方式，为了方便比较，需要将不同指标的得分转化成相同类型的数值，一般会将指标值按照一定的规则进行转换，使所有指标都能够在同样的范围内进行比较。</p>
+<p>由于不同指标的量纲不同，对评价结果的影响也不同，所以需要对所有指标的数据进行标准化处理，以消除各指标量纲的影响。标准化后，数据在不同指标上的权重是相同的，可以直接进行比较。具体数学过程略。</p>
+<p>处理完成后，就可以找到有限方案中的最优方案和最劣方案，然后分别计算各评价对象与最优方案和最劣方案间的距离，获得各评价对象与最优方案的相对接近程度，以此作为评价优劣的依据。该方法对数据分布及样本含量没有严格限制，数据计算简单易行。</p>
+<p>代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">%%  第一步：把数据复制到工作区，并将这个矩阵命名为X</span><br><span class="line">clear;clc</span><br><span class="line">load matlab.mat</span><br><span class="line"></span><br><span class="line">%%  第二步：判断是否需要正向化</span><br><span class="line">[n,m] = size(X);</span><br><span class="line">disp([&#x27;共有&#x27; num2str(n) &#x27;个评价对象, &#x27; num2str(m) &#x27;个评价指标&#x27;])</span><br><span class="line">Judge = input([&#x27;这&#x27; num2str(m) &#x27;个指标是否需要经过正向化处理，需要请输入1 ，不需要输入0：  &#x27;]);</span><br><span class="line">if Judge == 1</span><br><span class="line">    Position = input(&#x27;请输入需要正向化处理的指标所在的列，例如第2、3、6三列需要处理，那么你需要输入[2,3,6]： &#x27;); %[2,3,4]</span><br><span class="line">    disp(&#x27;请输入需要处理的这些列的指标类型（1：极小型， 2：中间型， 3：区间型） &#x27;)</span><br><span class="line">    Type = input(&#x27;例如：第2列是极小型，第3列是区间型，第6列是中间型，就输入[1,3,2]：  &#x27;); %[2,1,3]</span><br><span class="line">    for i = 1 : size(Position,2)  </span><br><span class="line">        X(:,Position(i)) = Positivization(X(:,Position(i)),Type(i),Position(i));</span><br><span class="line">    % Positivization是我们自己定义的函数，其作用是进行正向化，其一共接收三个参数</span><br><span class="line">    % 第一个参数是要正向化处理的那一列向量 X(:,Position(i))   回顾上一讲的知识，X(:,n)表示取第n列的全部元素</span><br><span class="line">    % 第二个参数是对应的这一列的指标类型（1：极小型， 2：中间型， 3：区间型）</span><br><span class="line">    % 第三个参数是告诉函数我们正在处理的是原始矩阵中的哪一列</span><br><span class="line">    % 该函数有一个返回值，它返回正向化之后的指标，我们可以将其直接赋值给我们原始要处理的那一列向量</span><br><span class="line">    end</span><br><span class="line">    disp(&#x27;正向化后的矩阵 X =  &#x27;)</span><br><span class="line">    disp(X)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">%% 第三步：对正向化后的矩阵进行标准化</span><br><span class="line">Z = X ./ repmat(sum(X.*X) .^ 0.5, n, 1);</span><br><span class="line">disp(&#x27;标准化矩阵 Z = &#x27;)</span><br><span class="line">disp(Z)</span><br><span class="line"></span><br><span class="line">%% 第四步：计算与最大值的距离和最小值的距离，并算出得分</span><br><span class="line">D_P = sum([(Z - repmat(max(Z),n,1)) .^ 2 ],2) .^ 0.5;   % D+ 与最大值的距离向量</span><br><span class="line">D_N = sum([(Z - repmat(min(Z),n,1)) .^ 2 ],2) .^ 0.5;   % D- 与最小值的距离向量</span><br><span class="line">S = D_N ./ (D_P+D_N);    % 未归一化的得分</span><br><span class="line">disp(&#x27;最后得分：&#x27;)</span><br><span class="line">stand_S = S / sum(S)</span><br><span class="line">[sorted_S,index] = sort(stand_S ,&#x27;descend&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="聚类模型"><a href="#聚类模型" class="headerlink" title="聚类模型"></a>聚类模型</h1><p>聚类，就是将样本划分为由类似的对象组成的多个类的过程，这里的“类”是事先未知的。聚类后，我们可以更加准确的在每个类中单独使用统计模型进行估计、分析或预测；也可以探究不同类之间的相关性和主要差异。</p>
+<h2 id="K-means聚类"><a href="#K-means聚类" class="headerlink" title="K-means聚类"></a>K-means聚类</h2><p>K-means聚类的算法流程：</p>
+<ol>
+<li>指定需要划分的簇的个数K值（类的个数）;</li>
+<li>随机地选择K个数据对象作为初始的聚类中心（不一定要是我们的样本点）;</li>
+<li>计算其余的各个数据对象到这K个初始聚类中心的距离，把数据对象划归到距离它最近的那个中心所处在的簇类中;</li>
+<li>调整新类并且重新计算出新类的中心;</li>
+<li>循环步骤三和四，看中心是否收敛（不变），如果收敛或达到迭代次数则停止循环;</li>
+</ol>
+<p>优点：</p>
+<ol>
+<li>算法简单、快速。</li>
+<li>对处理大数据集，该算法是相对高效率的。</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>要求用户必须事先给出要生成的簇的数目K。</li>
+<li>对初值敏感。</li>
+<li>对于孤立点数据敏感。</li>
+</ol>
+<p>K-means++算法可解决2和3这两个缺点，只对K-means算法“初始化K个聚类中心” 这一步进行了优化。k-means++算法选择初始聚类中心的基本原则是：初始的聚类中心之间的相互距离要尽可能的远。</p>
+<p>算法描述如下：</p>
+<ol>
+<li>随机选取一个样本作为第一个聚类中心；</li>
+<li>计算每个样本与当前已有聚类中心的最短距离（即与最近一个聚类中心的距离），这个值越大，表示被选取作为聚类中心的概率较大；最后，用轮盘法（依据概率大小来进行抽选）选出下一个聚类中心；</li>
+<li>重复步骤二，直到选出K个聚类中心。选出初始点后，就继续使用标准的K-means算法了。</li>
+</ol>
+<p>这一算法的最大缺点是，簇的个数k必须事前给定。</p>
+<h2 id="系统（层次）聚类"><a href="#系统（层次）聚类" class="headerlink" title="系统（层次）聚类"></a>系统（层次）聚类</h2><p>系统聚类的合并算法通过计算两类数据点间的距离，对最为接近的两类数据点进行组合，并反复迭代这一过程，直到将所有数据点合成一类，并生成聚类谱系图。</p>
+<p>系统（层次）聚类的算法流程：</p>
+<ol>
+<li>将每个对象看作一类，计算两两之间的最小距离；</li>
+<li>将距离最小的两个类合并成一个新类；</li>
+<li>重新计算新类与所有类之间的距离；</li>
+<li>重复二三两步，直到所有类最后合并成一类；</li>
+<li>结束。</li>
+</ol>
+<h2 id="DBSCAN算法"><a href="#DBSCAN算法" class="headerlink" title="DBSCAN算法"></a>DBSCAN算法</h2><p>聚类前不需要预先指定聚类的个数，生成的簇的个数不定（和数据有关）。该算法利用基于密度的聚类的概念，即要求聚类空间中的一定区域内所包含对象（点或其他空间对象）的数目不小于某一给定阈值。该方法能在具有噪声的空间数据库中发现任意形状的簇，可将密度足够大的相邻区域连接，能有效处理异常数据。</p>
+<p>DBSCAN算法将数据点分为三类：</p>
+<ul>
+<li>核心点：在半径Eps内含有不少于MinPts数目的点</li>
+<li>边界点：在半径Eps内点的数量小于MinPts，但是落在核心点的邻域内</li>
+<li>噪音点：既不是核心点也不是边界点的点</li>
+</ul>
+<p>只有两个指标，且你做出散点图后发现数据表现得很“DBSCAN”，这时候再用DBSCAN进行聚类。</p>
+<p>其他情况下，全部使用系统聚类吧！</p>
+<p>具体实现使用spss，详见<a target="_blank" rel="noopener" href="https://www.spsspro.com/help/hierarchical-cluster/">帮助文档</a>。</p>
+<h1 id="主成分分析"><a href="#主成分分析" class="headerlink" title="主成分分析"></a>主成分分析</h1><p>主成分分析(Principal Component Analysis,PCA)，是一种降维算法，它能将多个指标转换为少数几个主成分，这些主成分是原始变量的线性组合，且彼此之间互不相关，其能反映出原始数据的大部分信息。一般来说，当研究的问题涉及到多变量且变量之间存在很强的相关性时，我们可考虑使用主成分分析的方法来对数据进行简化。</p>
+<p>在实际问题研究中，多变量问题是经常会遇到的。变量太多，会增加分析问题的难度与复杂性，而且在许多实际问题中，多个变量之间是具有一定的相关关系的。因此，人们会很自然地想到，能否在相关分析的基础上，用较少的新变量代替原来较多的旧变量，而且使这些较少的新变量尽可能多地保留原来变量所反映的信息？事实上，这种想法是可以实现的，主成分分析方法就是综合处理这种问题的一种强有力的工具。主成分分析是把原来多个变量划为少数几个综合指标的一种统计分析方法。从数学角度来看，这是一种降维处理技术。</p>
+<p>降维是将高维度的数据（指标太多）保留下最重要的一些特征，去除噪声和不重要的特征，从而实现提升数据处理速度的目的。在实际的生产和应用中，降维在一定的信息损失范围内，可以为我们节省大量的时间和成本。降维也成为应用非常广泛的数据预处理方法。</p>
+<p>主成分分析可以用于聚类和回归问题。</p>
+<p>在聚类问题中，主成分分析可以用来降低数据的维度。通过PCA，我们可以将原始数据转换为一组新的主成分（即特征向量），这些主成分是原始数据中变化最大的方向。然后，我们可以使用聚类算法（如K均值聚类、层次聚类等）来对这些主成分进行聚类，以实现样本的分组。</p>
+<p>在回归问题中，主成分分析可以用来处理多重共线性。多重共线性指的是自变量之间存在高度相关性的情况，在回归分析中可能导致模型不稳定或系数估计不准确。通过应用主成分分析，我们可以将相关性较高的自变量转换为一组无关的主成分，并利用这些主成分进行回归分析，以建立更稳定和准确的预测模型。</p>
+<p>主成分分析在聚类和回归问题中的具体应用方法会有所不同。在聚类问题中，我们可以根据主成分的方差解释率选择保留的主成分数量，然后再应用聚类算法进行分组。在回归问题中，我们可以根据主成分的贡献程度选择保留的主成分数量，然后再进行回归分析。</p>
+<p>代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">clear;clc</span><br><span class="line">load data1.mat   % 主成分聚类</span><br><span class="line"></span><br><span class="line">[n,p] = size(x);  % n是样本个数，p是指标个数</span><br><span class="line"></span><br><span class="line">%% 第一步：对数据x标准化为X</span><br><span class="line">X=zscore(x);   % matlab内置的标准化函数（x-mean(x)）/std(x)</span><br><span class="line"></span><br><span class="line">%% 第二步：计算样本协方差矩阵</span><br><span class="line">R = cov(X);</span><br><span class="line"></span><br><span class="line">%% 注意：以上两步可合并为下面一步：直接计算样本相关系数矩阵</span><br><span class="line">R = corrcoef(x);</span><br><span class="line">disp(&#x27;样本相关系数矩阵为：&#x27;)</span><br><span class="line">disp(R)</span><br><span class="line"></span><br><span class="line">%% 第三步：计算R的特征值和特征向量</span><br><span class="line">% 注意：R是半正定矩阵，所以其特征值不为负数</span><br><span class="line">% R同时是对称矩阵，Matlab计算对称矩阵时，会将特征值按照从小到大排列</span><br><span class="line">[V,D] = eig(R);  % V 特征向量矩阵  D 特征值构成的对角矩阵</span><br><span class="line"></span><br><span class="line">%% 第四步：计算主成分贡献率和累计贡献率</span><br><span class="line">lambda = diag(D);  % diag函数用于得到一个矩阵的主对角线元素值(返回的是列向量)</span><br><span class="line">lambda = lambda(end:-1:1);  % 因为lambda向量是从小大到排序的，我们将其调个头</span><br><span class="line">contribution_rate = lambda / sum(lambda);  % 计算贡献率</span><br><span class="line">cum_contribution_rate = cumsum(lambda)/ sum(lambda);   % 计算累计贡献率  cumsum是求累加值的函数</span><br><span class="line">disp(&#x27;特征值为：&#x27;)</span><br><span class="line">disp(lambda&#x27;)  % 转置为行向量，方便展示</span><br><span class="line">disp(&#x27;贡献率为：&#x27;)</span><br><span class="line">disp(contribution_rate&#x27;)</span><br><span class="line">disp(&#x27;累计贡献率为：&#x27;)</span><br><span class="line">disp(cum_contribution_rate&#x27;)</span><br><span class="line">disp(&#x27;与特征值对应的特征向量矩阵为：&#x27;)</span><br><span class="line">% 注意：这里的特征向量要和特征值一一对应，之前特征值相当于颠倒过来了，因此特征向量的各列需要颠倒过来</span><br><span class="line">%  rot90函数可以使一个矩阵逆时针旋转90度，然后再转置，就可以实现将矩阵的列颠倒的效果</span><br><span class="line">V=rot90(V)&#x27;;</span><br><span class="line">disp(V)</span><br><span class="line"></span><br><span class="line">%% 计算我们所需要的主成分的值</span><br><span class="line">m =input(&#x27;请输入需要保存的主成分的个数:  &#x27;);</span><br><span class="line">F = zeros(n,m);  %初始化保存主成分的矩阵（每一列是一个主成分）</span><br><span class="line">for i = 1:m</span><br><span class="line">    ai = V(:,i)&#x27;;   % 将第i个特征向量取出，并转置为行向量</span><br><span class="line">    Ai = repmat(ai,n,1);   % 将这个行向量重复n次，构成一个n*p的矩阵</span><br><span class="line">    F(:, i) = sum(Ai .* X, 2);  % 注意，对标准化的数据求了权重后要计算每一行的和</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">%% (1)主成分聚类 ：将主成分指标所在的F矩阵复制到Excel表格，然后再用Spss进行聚类</span><br><span class="line">% 在Excel第一行输入指标名称（F1,F2, ..., Fm）</span><br><span class="line">% 双击Matlab工作区的F,进入变量编辑中，然后复制里面的数据到Excel表格</span><br><span class="line">% 导出数据之后，我们后续的分析就可以在Spss中进行。</span><br><span class="line"></span><br><span class="line">%%（2）主成分回归：将x使用主成分得到主成分指标，并将y标准化，接着导出到Excel，然后再使用Stata回归</span><br><span class="line">% Y = zscore(y);  % 一定要将y进行标准化哦~</span><br><span class="line">% 在Excel第一行输入指标名称（Y,F1, F2, ..., Fm）</span><br><span class="line">% 分别双击Matlab工作区的Y和F,进入变量编辑中，然后复制里面的数据到Excel表格</span><br><span class="line">% 导出数据之后，我们后续的分析就可以在Stata中进行。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="灰色关联分析"><a href="#灰色关联分析" class="headerlink" title="灰色关联分析"></a>灰色关联分析</h1><p>数理统计中的回归分析、方差分析、主成分分析等都是用来进行系统分析的方法。这些方法都有下述不足之处:</p>
+<ol>
+<li>要求有大量数据,数据量少就难以找出统计规律。</li>
+<li>要求样本服从某个典型的概率分布,要求各因素数据与系统特征数据之间呈线性关系且各因素之间彼此无关,这种要求往往难以满足。</li>
+<li>可能出现量化结果与定性分析结果不符的现象,导致系统的关系和规律遭到歪曲和颠倒。</li>
+</ol>
+<p>对一个抽象的系统或现象进行分析,首先要选准反映系统行为特征的数据序列,称为找系统行为的映射量,用映射量来间接地表征系统行为。例如,用国民平均接受教育的年数来反映教育发达程度,用刑事案件的发案率来反映社会治安面貌和社会秩序,用医院挂号次数来反映国民的健康水平等。有了系统行为特征数据和相关因素的数据,即可作出各个序列的图形,从直观上进行分析。</p>
+<p>灰色关联分析的基本思想是根据序列曲线几何形状的相似程度来判断其联系是否紧密。曲线越接近,相应序列之间的关联度就越大,反之就越小。</p>
+<p>这不是传统的数理统计方法，但是可以用。</p>
+<p>分析代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">%% 灰色关联分析用于系统分析</span><br><span class="line">clear;clc</span><br><span class="line">load gdp.mat  % 导入数据 一个6*4的矩阵</span><br><span class="line">  </span><br><span class="line">Mean = mean(gdp);  % 求出每一列的均值以供后续的数据预处理</span><br><span class="line">gdp = gdp ./ repmat(Mean,size(gdp,1),1);  %size(gdp,1)=6, repmat(Mean,6,1)可以将矩阵进行复制，复制为和gdp同等大小，然后使用点除（对应元素相除），这</span><br><span class="line">disp(&#x27;预处理后的矩阵为：&#x27;); disp(gdp)</span><br><span class="line">Y = gdp(:,1);  % 母序列</span><br><span class="line">X = gdp(:,2:end); % 子序列</span><br><span class="line">absX0_Xi = abs(X - repmat(Y,1,size(X,2)))  % 计算|X0-Xi|矩阵(在这里我们把X0定义为了Y)</span><br><span class="line">a = min(min(absX0_Xi))    % 计算两级最小差a</span><br><span class="line">b = max(max(absX0_Xi))  % 计算两级最大差b</span><br><span class="line">rho = 0.5; % 分辨系数取0.5</span><br><span class="line">gamma = (a+rho*b) ./ (absX0_Xi  + rho*b)  % 计算子序列中各个指标与母序列的关联系数</span><br><span class="line">disp(&#x27;子序列中各个指标的灰色关联度分别为：&#x27;)</span><br><span class="line">disp(mean(gamma))</span><br></pre></td></tr></table></figure>
+<p>评价代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">%% 灰色关联分析用于综合评价模型例</span><br><span class="line">clear;clc</span><br><span class="line">load data_water_quality.mat</span><br><span class="line">  </span><br><span class="line">%%  判断是否需要正向化</span><br><span class="line">[n,m] = size(X);</span><br><span class="line">disp([&#x27;共有&#x27; num2str(n) &#x27;个评价对象, &#x27; num2str(m) &#x27;个评价指标&#x27;])</span><br><span class="line">Judge = input([&#x27;这&#x27; num2str(m) &#x27;个指标是否需要经过正向化处理，需要请输入1 ，不需要输入0：  &#x27;]);   %1</span><br><span class="line">  </span><br><span class="line">if Judge == 1</span><br><span class="line">    Position = input(&#x27;请输入需要正向化处理的指标所在的列，例如第2、3、6三列需要处理，那么你需要输入[2,3,6]： &#x27;); %[2,3,4]</span><br><span class="line">    disp(&#x27;请输入需要处理的这些列的指  标类型（1：极小型， 2：中间型， 3：区间型） &#x27;)</span><br><span class="line">    Type = input(&#x27;例如：第2列是极小型，第3列是区间型，第6列是中间型，就输入[1,3,2]：  &#x27;); %[2,1,3]</span><br><span class="line">    % 注意，Position和Type是两个同维度的行向量</span><br><span class="line">    for i = 1 : size(Position,2)  %这里需要对这些列分别处理，因此我们需要知道一共要处理的次数，即循环的次数</span><br><span class="line">        X(:,Position(i)) = Positivization(X(:,Position(i)),Type(i),Position(i));</span><br><span class="line">    % Positivization是我们自己定义的函数，其作用是进行正向化，其一共接收三个参数</span><br><span class="line">    end</span><br><span class="line">    disp(&#x27;正向化后的矩阵 X =  &#x27;)</span><br><span class="line">    disp(X)</span><br><span class="line">end</span><br><span class="line">  </span><br><span class="line">%% 对正向化后的矩阵进行预处理</span><br><span class="line">Mean = mean(X);  % 求出每一列的均值以供后续的数据预处理</span><br><span class="line">Z = X ./ repmat(Mean,size(X,1),1);  </span><br><span class="line">disp(&#x27;预处理后的矩阵为：&#x27;); disp(Z)</span><br><span class="line">  </span><br><span class="line">%% 构造母序列和子序列</span><br><span class="line">Y = max(Z,[],2);  % 母序列为虚拟的，用每一行的最大值构成的列向量表示母序列</span><br><span class="line">X = Z; % 子序列就是预处理后的数据矩阵</span><br><span class="line">  </span><br><span class="line">%% 计算得分</span><br><span class="line">absX0_Xi = abs(X - repmat(Y,1,size(X,2)))  % 计算|X0-Xi|矩阵</span><br><span class="line">a = min(min(absX0_Xi))    % 计算两级最小差a</span><br><span class="line">b = max(max(absX0_Xi))  % 计算两级最大差b</span><br><span class="line">rho = 0.5; % 分辨系数取0.5</span><br><span class="line">gamma = (a+rho*b) ./ (absX0_Xi  + rho*b)  % 计算子序列中各个指标与母序列的关联系数</span><br><span class="line">weight = mean(gamma) / sum(mean(gamma));  % 利用子序列中各个指标的灰色关联度计算权重</span><br><span class="line">score = sum(X .* repmat(weight,size(X,1),1),2);   % 未归一化的得分</span><br><span class="line">stand_S = score / sum(score);   % 归一化后的得分</span><br><span class="line">[sorted_S,index] = sort(stand_S ,&#x27;descend&#x27;) % 进行排序</span><br><span class="line">  </span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a></div><div class="post_share"><div class="social-share" data-image="/img/md3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.sourcegcdn.com/ajax/libs/social-share.js/1.0.16/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.sourcegcdn.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" defer></script></div></div><div class="end is-center">end</div><div id="post-comment"><div class="comment-head is-center"><div class="comment-headline"><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head_sculpture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">L1ttleQing</div><div class="author-info__description">越悲怆的时候我越想嬉皮</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/L1ttleQing"><i class="fab fa-github"></i><span>主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">重构了界面，去除冗余结构，哦耶！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">层次分析法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TOPSIS%E6%B3%95%EF%BC%88%E4%BC%98%E5%8A%A3%E8%A7%A3%E8%B7%9D%E7%A6%BB%E6%B3%95%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">TOPSIS法（优劣解距离法）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">聚类模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K-means%E8%81%9A%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">K-means聚类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%EF%BC%88%E5%B1%82%E6%AC%A1%EF%BC%89%E8%81%9A%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">系统（层次）聚类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DBSCAN%E7%AE%97%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">DBSCAN算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">主成分分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">灰色关联分析</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/31/%E8%B9%89%E8%B7%8E%E5%8E%BB/" title="蹉跎去"><img src="/img/ctqq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="蹉跎去"/></a><div class="content"><a class="title" href="/2025/10/31/%E8%B9%89%E8%B7%8E%E5%8E%BB/" title="蹉跎去">蹉跎去</a><time datetime="2025-10-31T03:09:00.000Z" title="发表于 2025-10-31 11:09:00">2025-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/22/%E5%AE%B9%E6%98%93%E8%8E%AB%E7%9B%B8%E5%82%AC/" title="容易莫相催"><img src="/img/ctq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="容易莫相催"/></a><div class="content"><a class="title" href="/2025/02/22/%E5%AE%B9%E6%98%93%E8%8E%AB%E7%9B%B8%E5%82%AC/" title="容易莫相催">容易莫相催</a><time datetime="2025-02-22T03:09:00.000Z" title="发表于 2025-02-22 11:09:00">2025-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/08/1Springboot/" title="笔记 SpringBoot"><img src="/img/springboot.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记 SpringBoot"/></a><div class="content"><a class="title" href="/2025/02/08/1Springboot/" title="笔记 SpringBoot">笔记 SpringBoot</a><time datetime="2025-02-08T08:09:00.000Z" title="发表于 2025-02-08 16:09:00">2025-02-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/28/1mybatis/" title="笔记 Mybatis/plus"><img src="/img/mb.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记 Mybatis/plus"/></a><div class="content"><a class="title" href="/2025/01/28/1mybatis/" title="笔记 Mybatis/plus">笔记 Mybatis/plus</a><time datetime="2025-01-28T08:09:00.000Z" title="发表于 2025-01-28 16:09:00">2025-01-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/22/%E8%8B%8D%E8%8C%AB%E6%9D%A5%E6%97%B6/" title="苍茫来时"><img src="/img/cmls.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="苍茫来时"/></a><div class="content"><a class="title" href="/2025/01/22/%E8%8B%8D%E8%8C%AB%E6%9D%A5%E6%97%B6/" title="苍茫来时">苍茫来时</a><time datetime="2025-01-21T19:09:10.000Z" title="发表于 2025-01-22 03:09:10">2025-01-22</time></div></div></div></div></div></div></main><div id="content_rightside"><div id="rightside-toc"><div class="toc-box"></div></div></div></div><footer id="footer"><div class="wordcount"><span>L1ttleQing已经写了207.5k字。</span></br><span>相当于写完了一本巴金的《寒夜》</span></div><div class="footer-content"><div style="font-size: 0.7rem"><span id="timeDate">载入天数...</span><span> </span><span id="times">载入时分秒...</span><script src="/js/add/duration.js"></script></div></div></footer></div><div id="rightside"></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fymxlpNGPzfrWOWcfY71mwBV-gzGzoHsz',
+      appKey: 'I0VLNN103CyrzIXBIh7eFsH5',
+      placeholder: '昵称为必填项...',
+      avatar: 'mp',
+      meta: 'nick,mail'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn1.tianli0.top/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async src="//at.alicdn.com/t/font_2749059_1lswi5j6yqg.js"></script><script src="/js/add/nav.js"></script><script src="/js/add/leftsidemenu.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn1.tianli0.top/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn1.tianli0.top/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

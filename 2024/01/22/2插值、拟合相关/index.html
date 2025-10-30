@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>插值、拟合相关 | L1ttleQing的小站</title><meta name="keywords" content="数据科学"><meta name="author" content="L1ttleQing"><meta name="copyright" content="L1ttleQing"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="当笔记用，不严谨。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="插值、拟合相关">
+<meta property="og:url" content="http://l1ttleqing.github.io/2024/01/22/2%E6%8F%92%E5%80%BC%E3%80%81%E6%8B%9F%E5%90%88%E7%9B%B8%E5%85%B3/index.html">
+<meta property="og:site_name" content="L1ttleQing的小站">
+<meta property="og:description" content="当笔记用，不严谨。">
+<meta property="og:locale">
+<meta property="og:image" content="http://l1ttleqing.github.io/img/md1.png">
+<meta property="article:published_time" content="2024-01-22T04:09:00.000Z">
+<meta property="article:modified_time" content="2024-11-27T18:13:57.724Z">
+<meta property="article:author" content="L1ttleQing">
+<meta property="article:tag" content="数据科学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://l1ttleqing.github.io/img/md1.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://l1ttleqing.github.io/2024/01/22/2%E6%8F%92%E5%80%BC%E3%80%81%E6%8B%9F%E5%90%88%E7%9B%B8%E5%85%B3/"><link rel="preconnect" href="//cdn1.tianli0.top"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdnjs.sourcegcdn.com/ajax/libs/jquery/3.6.0/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdnjs.sourcegcdn.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdnjs.sourcegcdn.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdnjs.sourcegcdn.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js',
+      css: 'https://cdnjs.sourcegcdn.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-28 02:13:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" /><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"Jws8lO85zPmXkSKj",ck:"Jws8lO85zPmXkSKj"})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="simply-cha-top"></div><div class="is-center" id="sidebar-avatar"><div class="avatar-img"><img src="/img/head_sculpture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">L1ttleQing</div><div class="author-info__description">越悲怆的时候我越想嬉皮</div></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/L1ttleQing"><i class="fab fa-github"></i><span>主页</span></a><div class="menu-info-social-icons is-center"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-100px;"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div></div><div class="simply-cha"></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/">L1ttleQing的小站</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-100px;"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div></div></div><div id="navFn"><div id="search-button"><a class="social-icon search"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg><span> 搜索</span></a></div><div id="darkmodeBt"><a class="darkmode switch"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-deng1"></use></svg><span id="darkmode-switch"> 关灯</span></a></div><div id="toggle-menu"><a class="site-page"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mulu"></use></svg></a></div></div></div></nav></header><div id="mainbody"><div id="content_leftside"><div id="left_menu"><div class="leftside-social"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div><div class="leftside-contents"><span id="read-percent">0</span></div><div class="leftside-comment"><a href="#post-comment" title="要去留言吗？"><i class="fa-lg fas fa-comment"></i></a></div><div class="leftside-qq" title="来糖果屋聊天噻！"><i class="fa-lg fas fa-qrcode"></i></div><div class="leftside-rmb"><a title="柿还在施工的捐赠页！不给看！"><i class="fa-lg fas fa-money-check-dollar"></i></a></div></div><div id="left_display"><div class="candy_qrcode"><img src="./img/candy-qr.png"></div></div></div><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">插值、拟合相关</h1><div id="post-meta"><div class="tag-cloud-list is-center"><a href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/" style="font-size: 1.5em; color: rgb(193, 26, 22)">数据科学</a></div><div class="meta-firstline"><span class="post-meta-date"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-01-22T04:09:00.000Z" title="发表于 2024-01-22 12:09:00">2024-01-22</time><span class="post-meta-separator">|</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-shijian"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-27T18:13:57.724Z" title="更新于 2024-11-28 02:13:57">2024-11-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-fenlei1"></use></svg><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/">学习心得</a></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>11分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="插值、拟合相关"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="插值"><a href="#插值" class="headerlink" title="插值"></a>插值</h1><h2 id="一维数据插值"><a href="#一维数据插值" class="headerlink" title="一维数据插值"></a>一维数据插值</h2><p>当我们有一些离散的数据点，但需要在这些数据点之间进行估计或预测时，插值法就可以帮助我们。它能够通过已知的数据点来填补空缺的数据点，使我们能够得到更完整的数据。想象一下你手上有几个散落的点，但你想要画一条平滑的曲线来穿过这些点。插值法就像是使用橡皮筋，你把它放在这些点上，然后让它自然地弯曲，最终形成一条平滑的曲线。这条曲线能够逼近原始数据点，同时也能够在数据点之间进行预测。插值法就是通过已知的数据点来预测或填补未知的数据点，让我们能够获得更完整、更平滑的数据集。</p>
+<p>插值方法有很多种，下面列举几种常见的插值方法：</p>
+<ul>
+<li><strong>线性插值</strong>：线性插值是最简单的插值方法之一。它假设两个数据点之间的变化是线性的，并通过连接这些数据点来估计中间的未知数据点。</li>
+<li><strong>分段线性插值</strong>：将数据点划分为若干段，每段使用线性插值来估计未知数据点。</li>
+<li><strong>拉格朗日插值</strong>：使用拉格朗日多项式来逼近数据点。它通过在每个数据点上构建一个多项式，并将这些多项式相加来获得插值函数。拉格朗日插值可以准确地经过所有的已知数据点，但在计算复杂度上可能比较高。</li>
+</ul>
+<p>实际使用中，存在一个问题。当使用一些简单的插值方法（比如上述的线性插值或拉格朗日插值）时，如果函数在某些地方很快地变化，或者有剧烈的震荡，那么插值结果可能不准确，还会出现明显的振荡效应。</p>
+<p>这种现象被称为<strong>龙格现象</strong>，是插值法存在的主要问题。举例说明，假设我们想要使用插值方法来逼近一个函数，在两个已知的数据点之间进行插值，如果这个函数在两个数据点之间有一个非常陡峭的峰或谷，那么直接使用简单的插值方法很难直接预测，可能会导致插值结果出现误差和振荡效应。这种情况在越高次的插值中越容易出现。存在两个问题：插值多项式次数越高，精度未必显著提升，而误差可能显著增大。</p>
+<p>可以采用分段低次插值。将整个函数分成若干小区间，每个区间内采用低次插值方法（比如线性插值或二次插值）来逼近函数，可以在一定程度上避免高次插值带来的龙格现象。但是，这一方法也不能全面反映被插入函数的特征。解决方案是埃尔米特插值，它保证该点的导数也相等，模拟了形态特征。</p>
+<p>综合多种方案的优缺点，我们一般采用以下方法：</p>
+<ul>
+<li><strong>分段三次埃尔米特插值</strong> ：不仅考虑数据点之间的线性变化，还考虑了斜率的变化。通过使用三次多项式来逼近每一段数据，可以得到更平滑的插值结果。</li>
+<li><strong>三次样条插值</strong>： 更好的光滑插值方法。它将数据点之间的曲线定义为一系列的三次多项式段，并要求这些段在连接点上具有连续的一阶和二阶导数。这样可以得到更平滑、更自然的插值曲线。</li>
+</ul>
+<p>至于具体的数学证明，很显然，<strong>我是完全不会的</strong>。matlab内置了相关函数，我们可以直接调用。</p>
+<p>这里我们举一个例子，对正弦函数进行分段三次埃尔米特插值和三次样条插值，并绘制出原始数据和插值结果的曲线。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">% 分段三次埃尔米特插值</span><br><span class="line">x = -pi:pi; y = sin(x);</span><br><span class="line">new_x = -pi:0.1:pi;</span><br><span class="line">p = pchip(x,y,new_x);</span><br><span class="line">figure(1); % 在同一个脚本文件里面，要想画多个图，需要给每个图编号</span><br><span class="line">plot(x, y, &#x27;o&#x27;, new_x, p, &#x27;r-&#x27;)</span><br><span class="line">  </span><br><span class="line">% plot函数用法:</span><br><span class="line">% plot(x1,y1,x2,y2)</span><br><span class="line">% 线方式： - 实线  :点线    -. 虚点    - - 波折线</span><br><span class="line">% 点方式： . 圆点  +加号  * 星号  x x形  o 小圆</span><br><span class="line">% 颜色： y黄； r红； g绿； b蓝； w白； k黑； m紫； c青</span><br><span class="line">  </span><br><span class="line">% 三次样条插值和分段三次埃尔米特插值的对比</span><br><span class="line">x = -pi:pi;</span><br><span class="line">y = sin(x);</span><br><span class="line">new_x = -pi:0.1:pi;</span><br><span class="line">p1 = pchip(x,y,new_x);   %分段三次埃尔米特插值</span><br><span class="line">p2 = spline(x,y,new_x);  %三次样条插值</span><br><span class="line">figure(2);</span><br><span class="line">plot(x,y,&#x27;o&#x27;,new_x,p1,&#x27;r-&#x27;,new_x,p2,&#x27;b-&#x27;)</span><br><span class="line">legend(&#x27;样本点&#x27;,&#x27;三次埃尔米特插值&#x27;,&#x27;三次样条插值&#x27;,&#x27;Location&#x27;,&#x27;SouthEast&#x27;)   %标注显示在东南方向</span><br><span class="line">% LEGEND(string1,string2,string3, …)</span><br><span class="line">% 分别将字符串1、字符串2、字符串3……标注到图中，每个字符串对应的图标为画图时的图标。</span><br><span class="line">% ‘Location’用来指定标注显示的位置</span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>  所以我们现在的任务是整理数据，把有用的部分从完整的数据集里取出，单独组合在一起，这样有利于更方便地训练我们的模型。</p>
+<h2 id="n维数据插值"><a href="#n维数据插值" class="headerlink" title="n维数据插值"></a>n维数据插值</h2><p>上面是一维数据的插值，同样的道理，我们也可以对n维数据进行处理。</p>
+<p>在一维插值中，我们只有一个自变量和一个因变量，例如在一条直线上对数据进行插值。而在二维插值中，我们有两个自变量和一个因变量，例如在一个平面上对数据进行插值。而在更高维度的情况下，我们可能有更多的自变量。在多维数据中，我们需要使用多个坐标轴来描述每个数据点的位置。例如，在三维数据中，我们可以使用(x, y, z)来表示每个数据点的位置，其中x、y、z分别表示沿着三个不同方向的坐标值。通过在不同方向上进行插值计算，我们可以推断出缺失数据点的值，进而对整个多维空间进行预测或填充。</p>
+<p>对于n维数据插值，优先使用三次样条插值。我也不知道怎么证明，反正用这个效果就是好。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">% n维数据的插值</span><br><span class="line">x = -pi:pi; y = sin(x);</span><br><span class="line">new_x = -pi:0.1:pi;</span><br><span class="line">p = interpn (x, y, new_x, &#x27;spline&#x27;);</span><br><span class="line">% 等价于 p = spline(x, y, new_x)，优先使用三次样条插值。</span><br><span class="line">figure(3);</span><br><span class="line">plot(x, y, &#x27;o&#x27;, new_x, p, &#x27;r-&#x27;)</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<p>插值法一般不用于预测。如果真的要用它预测，你多半也就完蛋了。</p>
+<h1 id="拟合"><a href="#拟合" class="headerlink" title="拟合"></a>拟合</h1><h2 id="拟合的实现"><a href="#拟合的实现" class="headerlink" title="拟合的实现"></a>拟合的实现</h2><p>拟合的思想就像是给你一些散落的数据点，你需要找到一条曲线或者函数，尽可能地贴近这些数据点，同时还要能够反映出数据的整体趋势。</p>
+<p>可以想象一下，面前有一堆螺丝钉，你想要知道它们的整体形状。拟合就像是你拿一个橡皮筋，和插值不同，我们不直接放在螺丝钉上，而是使得它能够尽量贴合这些螺丝钉的位置。你会不断调整线的形状，直到你觉得它与螺丝钉的位置最接近，并且能够反映出整体的形状。如果使用不同的函数形式来进行拟合。通过寻找最适合的函数形式和参数，我们就可以找到一个拟合曲线或函数，使其与已知数据点尽可能接近，并且能够描述数据的总体趋势。尽管不能保证它通过每一个点，但是误差足够小就可以满足要求，得出一个确定的曲线。即使有一些数据点没有给出，也可以根据拟合曲线来预测这些缺失的数据点的位置。</p>
+<p>因此我们可以认为，当数据点比较多、分布比较连续，且需要反映数据整体趋势时，拟合是比较合适的选择。</p>
+<p>下面给出代码，使用最小二乘法找出x与y之间的拟合曲线：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">clear;clc</span><br><span class="line">load  data1</span><br><span class="line">plot(x,y,&#x27;o&#x27;)</span><br><span class="line">% 给x和y轴加上标签</span><br><span class="line">xlabel(&#x27;x的值&#x27;)</span><br><span class="line">ylabel(&#x27;y的值&#x27;)</span><br><span class="line">n = size(x,1);</span><br><span class="line">k = (n*sum(x.*y)-sum(x)*sum(y))/(n*sum(x.*x)-sum(x)*sum(x))</span><br><span class="line">b = (sum(x.*x)*sum(y)-sum(x)*sum(x.*y))/(n*sum(x.*x)-sum(x)*sum(x)) %最小二乘法</span><br><span class="line">hold on % 继续在之前的图形上来画图形</span><br><span class="line">grid on % 显示网格线</span><br><span class="line"></span><br><span class="line">% 画出y=kx+b的函数图像 plot(x,y)</span><br><span class="line">% 传统的画法：模拟生成x和y的序列，比如要画出[0,5]上的图形</span><br><span class="line"></span><br><span class="line">xx = 2.5: 0.1 :7  % 间隔设置的越小画出来的图形越准确</span><br><span class="line">yy = k * xx + b  % k和b都是上面已经算出来的已知值</span><br><span class="line">plot(xx,yy,&#x27;-&#x27;)</span><br><span class="line"></span><br><span class="line">% 匿名函数的基本用法。</span><br><span class="line">% handle = @(arglist) anonymous_function</span><br><span class="line">% 其中handle为调用匿名函数时使用的名字。</span><br><span class="line">% arglist为匿名函数的输入参数，可以是一个，也可以是多个，用逗号分隔。</span><br><span class="line">% anonymous_function为匿名函数的表达式。</span><br><span class="line">%  z=@(x,y) x^2+y^2; </span><br><span class="line">%  z(1,2) </span><br><span class="line">% % ans =  5</span><br><span class="line">% fplot(f,xinterval) 将匿名函数f在指定区间xinterval绘图。xinterval =  [xmin xmax] 表示定义域的范围</span><br><span class="line"></span><br><span class="line">f=@(x) k*x + b;</span><br><span class="line">fplot(f,[2.5,7]);</span><br><span class="line">legend(&#x27;样本数据&#x27;,&#x27;拟合函数&#x27;,&#x27;location&#x27;,&#x27;SouthEast&#x27;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="评价拟合质量"><a href="#评价拟合质量" class="headerlink" title="评价拟合质量"></a>评价拟合质量</h2><p>拟合优度 R^2，也称为决定系数，是用来衡量回归模型对观测数据的解释能力的统计指标，只适用于线性函数。它的取值范围在0到1之间，越接近1，说明误差平方和越接近0，也就意味着拟合效果越好。</p>
+<p>R^2的计算方式是通过回归平方和 (SSR) 除以总体平方和 (SST) 得到的。具体公式为：R^2 &#x3D; SSR &#x2F; SST。</p>
+<p>回归平方和（SSR）表示因变量的变异程度中可以被回归模型解释的部分的总和。计算方式是将每个预测值与因变量均值的差的平方求和。</p>
+<p>误差平方和（SSE）表示因变量的变异程度中不能被回归模型解释的部分的总和。计算方式是将每个观测值与对应的预测值的差的平方求和，是另外一个重要指标，越小越好。</p>
+<p>总体平方和（SST）表示因变量（被解释变量）的总方差。计算方式是将每个观测值与因变量均值的差的平方求和。</p>
+<p>具体原理不赘述，只需要套公式实现代码就可以了。</p>
+<p>代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">y_hat = k*x+b; % y的拟合值</span><br><span class="line">SSR = sum((y_hat-mean(y)).^2)  % 回归平方和</span><br><span class="line">SSE = sum((y_hat-y).^2) % 误差平方和</span><br><span class="line">SST = sum((y-mean(y)).^2) % 总体平方和</span><br><span class="line">SST-SSE-SSR   % 5.6843e-14  =   5.6843*10^-14   matlab浮点数计算的一个误差</span><br><span class="line">R_2 = SSR / SST</span><br></pre></td></tr></table></figure>
+
+<h2 id="曲线拟合工具箱"><a href="#曲线拟合工具箱" class="headerlink" title="曲线拟合工具箱"></a>曲线拟合工具箱</h2><p>进入曲线拟合工具箱界面“Curve Fitting tool”</p>
+<ol>
+<li>点击“Data”按钮，弹出“Data”窗口；</li>
+<li>利用X data和Y data的下拉菜单读入数据x,y，可修改数据集名“Data set name”，然后点击“Create data set”按钮，退出“Data”窗口，返回工具箱界面，这时会自动画出数据集的曲线图；</li>
+<li>点击“Fitting”按钮，弹出“Fitting”窗口；</li>
+<li>点击“New fit”按钮，可修改拟合项目名称“Fit name”，通过“Data set”下拉菜单选择数据集，然后通过下拉菜单“Type of fit”选择拟合曲线的类型;</li>
+<li>类型设置完成后，点击“Apply”按钮，就可以在Results框中得到拟合结果。</li>
+</ol>
+<p>工具箱提供的拟合类型有：</p>
+<ul>
+<li>Custom Equations：用户自定义的函数类型</li>
+<li>Exponential：指数逼近，有2种类型， a<em>exp(b</em>x) 、 a<em>exp(b</em>x) + c<em>exp(d</em>x)</li>
+<li>Fourier：傅立叶逼近，有7种类型，基础型是 a0 + a1<em>cos(x</em>w) + b1<em>sin(x</em>w)</li>
+<li>Gaussian：高斯逼近，有8种类型，基础型是 a1*exp(-((x-b1)&#x2F;c1)^2)</li>
+<li>Interpolant：插值逼近，有4种类型，不赘述。</li>
+<li>Polynomial：多形式逼近，有9种类型。</li>
+<li>Power：幂逼近，有2种类型，a<em>x^b 、a</em>x^b + c</li>
+<li>Rational：有理数逼近</li>
+<li>Smoothing Spline：平滑逼近</li>
+<li>Sum of Sin Functions：正弦曲线逼近，有8种类型，基础型是 a1<em>sin(b1</em>x + c1)</li>
+<li>Weibull：只有一种，a<em>b</em>x^(b-1)<em>exp(-a</em>x^b)</li>
+</ul>
+<p>操作结束后，会在工具箱窗口中显示拟合曲线。如果拟合效果不好，还可以在“Fitting”窗口点击“New fit”按钮，按照上述步骤4、5进行新的拟合。</p>
+<p>左上角“文件”，选择“generate code”导出代码。这里给出样例，数据是乱编的。我这辈子都不想再看见Fourier了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">clear;clc</span><br><span class="line">year = 1790:10:2000;</span><br><span class="line">population = [3.9,5.3,7.2,9.6,12.9,17.1,23.2,31.4,38.6,50.2,62.9,76.0,92.0,106.5,123.2,131.7,150.7,179.3,204.0,226.5,251.4,281.4];</span><br><span class="line">plot(year,population,&#x27;o&#x27;)</span><br><span class="line">  </span><br><span class="line">[fitresult, gof] = createFit(year, population) % 这个就是从工具箱导出的函数</span><br><span class="line">  </span><br><span class="line">t = 2001:2030;</span><br><span class="line">xm = 342.4;  </span><br><span class="line">r =  0.02735; % 这些数据是工具箱拟合后得到的</span><br><span class="line">predictions = xm./(1+(xm./3.9-1).*exp(-r.*(t-1790)));  % 计算预测值（注意这里要写成点乘和点除,这样可以保证按照对应元素进行计算）</span><br><span class="line">figure(3)</span><br><span class="line">plot(year,population,&#x27;o&#x27;,t,predictions,&#x27;.&#x27;)  % 绘制预测结果图</span><br></pre></td></tr></table></figure></article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6/">数据科学</a></div><div class="post_share"><div class="social-share" data-image="/img/md1.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.sourcegcdn.com/ajax/libs/social-share.js/1.0.16/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.sourcegcdn.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" defer></script></div></div><div class="end is-center">end</div><div id="post-comment"><div class="comment-head is-center"><div class="comment-headline"><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head_sculpture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">L1ttleQing</div><div class="author-info__description">越悲怆的时候我越想嬉皮</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/L1ttleQing"><i class="fab fa-github"></i><span>主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">重构了界面，去除冗余结构，哦耶！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%92%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">插值</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%95%B0%E6%8D%AE%E6%8F%92%E5%80%BC"><span class="toc-number">1.1.</span> <span class="toc-text">一维数据插值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#n%E7%BB%B4%E6%95%B0%E6%8D%AE%E6%8F%92%E5%80%BC"><span class="toc-number">1.2.</span> <span class="toc-text">n维数据插值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%9F%E5%90%88"><span class="toc-number">2.</span> <span class="toc-text">拟合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%9F%E5%90%88%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.1.</span> <span class="toc-text">拟合的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E6%8B%9F%E5%90%88%E8%B4%A8%E9%87%8F"><span class="toc-number">2.2.</span> <span class="toc-text">评价拟合质量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF%E6%8B%9F%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1"><span class="toc-number">2.3.</span> <span class="toc-text">曲线拟合工具箱</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/31/%E8%B9%89%E8%B7%8E%E5%8E%BB/" title="蹉跎去"><img src="/img/ctqq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="蹉跎去"/></a><div class="content"><a class="title" href="/2025/10/31/%E8%B9%89%E8%B7%8E%E5%8E%BB/" title="蹉跎去">蹉跎去</a><time datetime="2025-10-31T03:09:00.000Z" title="发表于 2025-10-31 11:09:00">2025-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/22/%E5%AE%B9%E6%98%93%E8%8E%AB%E7%9B%B8%E5%82%AC/" title="容易莫相催"><img src="/img/ctq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="容易莫相催"/></a><div class="content"><a class="title" href="/2025/02/22/%E5%AE%B9%E6%98%93%E8%8E%AB%E7%9B%B8%E5%82%AC/" title="容易莫相催">容易莫相催</a><time datetime="2025-02-22T03:09:00.000Z" title="发表于 2025-02-22 11:09:00">2025-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/08/1Springboot/" title="笔记 SpringBoot"><img src="/img/springboot.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记 SpringBoot"/></a><div class="content"><a class="title" href="/2025/02/08/1Springboot/" title="笔记 SpringBoot">笔记 SpringBoot</a><time datetime="2025-02-08T08:09:00.000Z" title="发表于 2025-02-08 16:09:00">2025-02-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/28/1mybatis/" title="笔记 Mybatis/plus"><img src="/img/mb.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记 Mybatis/plus"/></a><div class="content"><a class="title" href="/2025/01/28/1mybatis/" title="笔记 Mybatis/plus">笔记 Mybatis/plus</a><time datetime="2025-01-28T08:09:00.000Z" title="发表于 2025-01-28 16:09:00">2025-01-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/22/%E8%8B%8D%E8%8C%AB%E6%9D%A5%E6%97%B6/" title="苍茫来时"><img src="/img/cmls.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="苍茫来时"/></a><div class="content"><a class="title" href="/2025/01/22/%E8%8B%8D%E8%8C%AB%E6%9D%A5%E6%97%B6/" title="苍茫来时">苍茫来时</a><time datetime="2025-01-21T19:09:10.000Z" title="发表于 2025-01-22 03:09:10">2025-01-22</time></div></div></div></div></div></div></main><div id="content_rightside"><div id="rightside-toc"><div class="toc-box"></div></div></div></div><footer id="footer"><div class="wordcount"><span>L1ttleQing已经写了207.5k字。</span></br><span>相当于写完了一本巴金的《寒夜》</span></div><div class="footer-content"><div style="font-size: 0.7rem"><span id="timeDate">载入天数...</span><span> </span><span id="times">载入时分秒...</span><script src="/js/add/duration.js"></script></div></div></footer></div><div id="rightside"></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fymxlpNGPzfrWOWcfY71mwBV-gzGzoHsz',
+      appKey: 'I0VLNN103CyrzIXBIh7eFsH5',
+      placeholder: '昵称为必填项...',
+      avatar: 'mp',
+      meta: 'nick,mail'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn1.tianli0.top/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async src="//at.alicdn.com/t/font_2749059_1lswi5j6yqg.js"></script><script src="/js/add/nav.js"></script><script src="/js/add/leftsidemenu.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn1.tianli0.top/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn1.tianli0.top/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

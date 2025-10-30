@@ -1,0 +1,350 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Matplotlib数据可视化基础 | L1ttleQing的小站</title><meta name="keywords" content="计算机视觉"><meta name="author" content="L1ttleQing"><meta name="copyright" content="L1ttleQing"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="内容部分摘自“莫烦python站”。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matplotlib数据可视化基础">
+<meta property="og:url" content="http://l1ttleqing.github.io/2024/04/15/3Matplotlib%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="L1ttleQing的小站">
+<meta property="og:description" content="内容部分摘自“莫烦python站”。">
+<meta property="og:locale">
+<meta property="og:image" content="http://l1ttleqing.github.io/img/matplotlib.jpg">
+<meta property="article:published_time" content="2024-04-15T13:29:10.000Z">
+<meta property="article:modified_time" content="2024-11-27T18:13:57.724Z">
+<meta property="article:author" content="L1ttleQing">
+<meta property="article:tag" content="计算机视觉">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://l1ttleqing.github.io/img/matplotlib.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://l1ttleqing.github.io/2024/04/15/3Matplotlib%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn1.tianli0.top"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdnjs.sourcegcdn.com/ajax/libs/jquery/3.6.0/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdnjs.sourcegcdn.com/ajax/libs/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdnjs.sourcegcdn.com/ajax/libs/justifiedGallery/3.8.1/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdnjs.sourcegcdn.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js',
+      css: 'https://cdnjs.sourcegcdn.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-11-28 02:13:57'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn1.tianli0.top/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" /><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"Jws8lO85zPmXkSKj",ck:"Jws8lO85zPmXkSKj"})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="simply-cha-top"></div><div class="is-center" id="sidebar-avatar"><div class="avatar-img"><img src="/img/head_sculpture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">L1ttleQing</div><div class="author-info__description">越悲怆的时候我越想嬉皮</div></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/L1ttleQing"><i class="fab fa-github"></i><span>主页</span></a><div class="menu-info-social-icons is-center"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-100px;"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div></div><div class="simply-cha"></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><a id="site-name" href="/">L1ttleQing的小站</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child" style="left:-100px;"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div></div></div><div id="navFn"><div id="search-button"><a class="social-icon search"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg><span> 搜索</span></a></div><div id="darkmodeBt"><a class="darkmode switch"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-deng1"></use></svg><span id="darkmode-switch"> 关灯</span></a></div><div id="toggle-menu"><a class="site-page"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mulu"></use></svg></a></div></div></div></nav></header><div id="mainbody"><div id="content_leftside"><div id="left_menu"><div class="leftside-social"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div><div class="leftside-contents"><span id="read-percent">0</span></div><div class="leftside-comment"><a href="#post-comment" title="要去留言吗？"><i class="fa-lg fas fa-comment"></i></a></div><div class="leftside-qq" title="来糖果屋聊天噻！"><i class="fa-lg fas fa-qrcode"></i></div><div class="leftside-rmb"><a title="柿还在施工的捐赠页！不给看！"><i class="fa-lg fas fa-money-check-dollar"></i></a></div></div><div id="left_display"><div class="candy_qrcode"><img src="./img/candy-qr.png"></div></div></div><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Matplotlib数据可视化基础</h1><div id="post-meta"><div class="tag-cloud-list is-center"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 1.5em; color: rgb(87, 196, 2)">计算机视觉</a></div><div class="meta-firstline"><span class="post-meta-date"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rili"></use></svg><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-15T13:29:10.000Z" title="发表于 2024-04-15 21:29:10">2024-04-15</time><span class="post-meta-separator">|</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-shijian"></use></svg><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-11-27T18:13:57.724Z" title="更新于 2024-11-28 02:13:57">2024-11-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-fenlei1"></use></svg><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/">学习心得</a></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>18分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Matplotlib数据可视化基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>缓慢填充中…</p>
+<h1 id="简介与安装"><a href="#简介与安装" class="headerlink" title="简介与安装"></a>简介与安装</h1><p>Matplotlib是一个Python绘图库，它的设计受到了Matlab的影响，因此在一定程度上具有类似的语法和功能。</p>
+<p>如果某天你发现自己要学习 Matplotlib, 很可能是因为:</p>
+<ul>
+<li>Matplotlib 是非常强大的 Python 画图工具，它非常潮流，非常带派。</li>
+<li>这matlab我是一天也用不下去了！</li>
+<li>手中有很多数据, 可是不知道该怎么呈现这些数据。</li>
+</ul>
+<p>所以就找到了 Matplotlib ，它能帮你画出美丽的:</p>
+<ul>
+<li>线图</li>
+<li>散点图</li>
+<li>等高线图</li>
+<li>条形图</li>
+<li>柱状图</li>
+<li>3D 图形</li>
+<li>图形动画</li>
+</ul>
+<p>对于python，配置只需终端下的一条指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install matplotlib</span><br></pre></td></tr></table></figure>
+
+<p>或者直接在pycharm里安装包即可。这一步非常简单，不多赘述。</p>
+<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><p>使用import导入模块matplotlib.pyplot，并简写成plt，使用import导入模块numpy，并简写成np。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br></pre></td></tr></table></figure>
+
+<p>使用np.linspace定义x：范围是(-1,1);个数是50 , 再仿真一维数据组(x ,y)表示曲线1。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(-1, 1, 50)</span><br><span class="line">y = 2*x + 1</span><br></pre></td></tr></table></figure>
+
+<p>使用plt.figure定义一个图像窗口, 使用plt.plot画(x ,y)曲线. 使用plt.show显示图像.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.figure()</span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>得到的结果是：</p>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_c6ae60dcc3f3b02319d7810c41f0b222.png"></p>
+<p>下面的按钮作用分别是：复位，切换视图，拖动范围，查看某一特定范围，调整图层显示，保存图片。</p>
+<h2 id="关于figure"><a href="#关于figure" class="headerlink" title="关于figure"></a>关于figure</h2><p>matplotlib的 figure 就是一个单独的小窗口, 小窗口里面还可以有更多的小图片。</p>
+<p>使用np.linspace定义x：范围是(-3,3);个数是50，仿真一维数据组(x ,y1)表示曲线1，仿真一维数据组(x ,y2)表示曲线2。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.linspace(-3, 3, 50)</span><br><span class="line">y1 = 2*x + 1</span><br><span class="line">y2 = x**2</span><br></pre></td></tr></table></figure>
+<p>使用plt.figure定义一个图像窗口：编号为3；大小为(8, 5)。使用plt.plot画(x ,y2)曲线，使用plt.plot画(x ,y1)曲线，曲线的颜色属性(color)为红色。曲线的宽度(linewidth)为很夸张的10.0。曲线的类型(linestyle)为虚线（dashed）,最后使用plt.show显示图像。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(num = 3)</span><br><span class="line">plt.plot(x, y1)</span><br><span class="line">plt.plot(x, y2,color = &#x27;red&#x27;,linewidth= 1.0，linestyle = &#x27;dashed&#x27; )</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_0fe04656d3a3fca846d495d0bef7f24a.png"></p>
+<p>于是两条曲线就生成在一起了，而且可以看见显示的是我们所期望的figure3。</p>
+<h2 id="设置坐标轴"><a href="#设置坐标轴" class="headerlink" title="设置坐标轴"></a>设置坐标轴</h2><p>追加设置，使用plt.xlim设置x坐标轴范围：(-1, 2)； 使用plt.ylim设置y坐标轴范围：(-2, 3)； 使用plt.xlabel设置x坐标轴名称：’I am x’； 使用plt.ylabel设置y坐标轴名称：’I am y’。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.xlim((-1, 2))</span><br><span class="line">plt.ylim((-2, 3))</span><br><span class="line">plt.xlabel(&#x27;I am x&#x27;)</span><br><span class="line">plt.ylabel(&#x27;I am y&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>效果如下图：</p>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_16d6361453ac62a93f3aa98faa89241f.png"></p>
+<p>使用np.linspace定义范围以及个数：这里范围是(-1,2);个数是5。 使用print打印出新定义的范围。使用plt.xticks设置x轴刻度：范围是(-1,2);个数是5。</p>
+<p>使用plt.yticks设置y轴刻度以及名称：这里刻度为[-2, -1.8, -1, 1.22, 3]；对应刻度的名称为[‘T4’, ‘T3’, ‘T2’, ‘T1’, ‘T0’]。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">new_ticks = np.linspace(-1, 2, 5)</span><br><span class="line">print(new_ticks)</span><br><span class="line">plt.xticks(new_ticks)</span><br><span class="line">  </span><br><span class="line">plt.yticks([-2, -1.8, -1, 1.22, 3],[&#x27;T4&#x27;, &#x27;T3&#x27;, &#x27;T2&#x27;, &#x27;T1&#x27;, &#x27;T0&#x27;])</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<p>效果如下图：</p>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_b66620dd80352c92dbc16c1bd098f30d.png"></p>
+<p>使用plt.gca获取当前坐标轴信息。使用.spines设置边框：右侧边框；使用.set_color设置边框颜色：默认白色，我这里用红色，方便看。</p>
+<p>使用.spines设置边框：上边框；使用.set_color设置边框颜色：默认白色，我用红色；此外，我们把二次函数的width调回了1。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ax = plt.gca()</span><br><span class="line">ax.spines[&#x27;right&#x27;].set_color(&#x27;none&#x27;)</span><br><span class="line">ax.spines[&#x27;top&#x27;].set_color(&#x27;none&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>效果如下图：</p>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_4913dd9ba8db6ea4d0db0d03dca4beb9.png"></p>
+<p>使用.xaxis.set_ticks_position设置x坐标刻度数字或名称的位置：bottom.（可选的所有位置：top，bottom，both，default，none）</p>
+<p>使用.spines设置边框：x轴；使用.set_position设置边框位置：y&#x3D;0的位置；（可选的所有属性：outward，axes，data）</p>
+<p>这一行代码用于设置x轴的边框（spine）的位置。ax.spines[‘bottom’]表示选择x轴底部的边框，set_position((‘data’, 0))表示将该边框的位置设置在y轴数据坐标轴上的0位置。换句话说，这行代码将x轴的底部边框移动到y轴上的0位置处，使得x轴在y轴0点交叉。综合起来，这两行代码的作用是将x轴的刻度和边框都设置在图表的底部，并且让x轴在y轴的0点交叉，这样就可以更清晰地显示图表中的数据。</p>
+<p>y轴同理，代码给出如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ax.xaxis.set_ticks_position(&#x27;bottom&#x27;)</span><br><span class="line">ax.spines[&#x27;bottom&#x27;].set_position((&#x27;data&#x27;, 0))</span><br><span class="line">  </span><br><span class="line">ax.yaxis.set_ticks_position(&#x27;left&#x27;)</span><br><span class="line">ax.spines[&#x27;left&#x27;].set_position((&#x27;data&#x27;,0))</span><br></pre></td></tr></table></figure>
+
+<p>如下图所示，我已经把边框调回了白色：</p>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_c6836ef3e292b971f4108a3a105bd549.png"></p>
+<h2 id="Legend-图例"><a href="#Legend-图例" class="headerlink" title="Legend 图例"></a>Legend 图例</h2><p>matplotlib 中的 legend 图例就是为了帮我们展示出每个数据对应的图像名称，让读者更容易认识到你的数据结构。</p>
+<p>上面，我们已经了解到关于坐标轴设置方面的一些内容，代码已收折：</p>
+<details>
+  
+<summary>点击展开/收缩代码块</summary>
+  
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">x = np.linspace(-3, 3, 50)</span><br><span class="line">y1 = 2*x + 1</span><br><span class="line">y2 = x**2</span><br><span class="line"></span><br><span class="line">plt.figure(num = 3)</span><br><span class="line">plt.plot(x, y1)</span><br><span class="line">plt.plot(x, y2,color = &#x27;red&#x27;,linewidth= 1.0,linestyle = &#x27;dashed&#x27; )</span><br><span class="line"></span><br><span class="line">plt.xlim((-1, 2))</span><br><span class="line">plt.ylim((-2, 3))</span><br><span class="line">plt.xlabel(&#x27;I am x&#x27;)</span><br><span class="line">plt.ylabel(&#x27;I am y&#x27;)</span><br><span class="line"></span><br><span class="line">new_ticks = np.linspace(-2, 2, 5)</span><br><span class="line">print(new_ticks)</span><br><span class="line">plt.xticks(new_ticks)</span><br><span class="line">plt.yticks([-2, -1.8, -1, 1.22, 3],[&#x27;T4&#x27;, &#x27;T3&#x27;, &#x27;T2&#x27;, &#x27;T1&#x27;, &#x27;T0&#x27;])</span><br><span class="line"></span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.spines[&#x27;right&#x27;].set_color(&#x27;white&#x27;)</span><br><span class="line">ax.spines[&#x27;top&#x27;].set_color(&#x27;white&#x27;)</span><br><span class="line"></span><br><span class="line">ax.xaxis.set_ticks_position(&#x27;bottom&#x27;)</span><br><span class="line">ax.spines[&#x27;bottom&#x27;].set_position((&#x27;data&#x27;, 0))</span><br><span class="line">ax.yaxis.set_ticks_position(&#x27;left&#x27;)</span><br><span class="line">ax.spines[&#x27;left&#x27;].set_position((&#x27;data&#x27;,0))</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</details>
+</br>
+
+<p>接下来，我们将对图中的两条线，也就是蓝色实线与红色虚线绘制图例，首先我们设置两条线的类型等信息。</p>
+<p>legend将要显示的信息来自于下面代码中的 label。 所以我们只需要简单写下一下代码, 就能自动为我们添加图例。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># set line syles</span><br><span class="line">l1, = plt.plot(x, y1, label=&#x27;linear line&#x27;)</span><br><span class="line">l2, = plt.plot(x, y2, color=&#x27;red&#x27;, linewidth=1.0, linestyle=&#x27;--&#x27;, label=&#x27;square line&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>如果我们想单独修改之前的 label 信息, 给不同类型的线条设置图例信息, 可以在 plt.legend 输入更多参数。如果以下面这种形式添加 legend, 我们需要确保,在上面的代码 plt.plot(x, y2, label&#x3D;’linear line’) 和 plt.plot(x, y1, label&#x3D;’square line’) 中有用变量 l1 和 l2 分别存储起来。而且需要注意的是 l1, l2,要以逗号结尾, 因为plt.plot() 返回的是一个列表。这样我们就能分别重新设置线条对应的 label 了。</p>
+<p>其中’loc’参数有多种，’best’表示自动分配最佳位置，其余的如下：</p>
+<blockquote>
+<p>‘best’ : 0,<br> ‘upper right’  : 1,<br> ‘upper left’   : 2,<br> ‘lower left’   : 3,<br> ‘lower right’  : 4,<br> ‘right’        : 5,<br> ‘center left’  : 6,<br> ‘center right’ : 7,<br> ‘lower center’ : 8,<br> ‘upper center’ : 9,<br> ‘center’       : 10,</p>
+</blockquote>
+<h2 id="Annotation标注"><a href="#Annotation标注" class="headerlink" title="Annotation标注"></a>Annotation标注</h2><p>当图线中某些特殊地方需要标注时，我们可以使用 annotation。 matplotlib 中的 annotation有两种方法， 一种是用 plt 里面的 annotate，一种是用 plt 里面的 text 来写标注.</p>
+<p>首先，我们在坐标轴中绘制一条直线，然后挪动好坐标轴的位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt  </span><br><span class="line">import numpy as np  </span><br><span class="line"></span><br><span class="line">x = np.linspace(-3, 3, 50)  </span><br><span class="line">y = 2*x + 1  </span><br><span class="line"></span><br><span class="line">plt.figure(num=1, figsize=(8, 5),)  </span><br><span class="line">plt.plot(x, y,)  </span><br><span class="line"></span><br><span class="line">ax = plt.gca()  </span><br><span class="line">ax.spines[&#x27;right&#x27;].set_color(&#x27;none&#x27;)  </span><br><span class="line">ax.spines[&#x27;top&#x27;].set_color(&#x27;none&#x27;)  </span><br><span class="line">ax.xaxis.set_ticks_position(&#x27;bottom&#x27;)  </span><br><span class="line">ax.spines[&#x27;bottom&#x27;].set_position((&#x27;data&#x27;, 0))  </span><br><span class="line">ax.yaxis.set_ticks_position(&#x27;left&#x27;)  </span><br><span class="line">ax.spines[&#x27;left&#x27;].set_position((&#x27;data&#x27;, 0))  </span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_38535376a339536c53c44c8ca047135c.png"></p>
+<p>我们要做的是标注出点(x0, y0)的位置信息，画出一条垂直于x轴的虚线，同时对(x0, y0)这个点进行标注。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x0 = 1  </span><br><span class="line">y0 = 2*x0 + 1  </span><br><span class="line">plt.plot([x0, x0,], [0, y0,], &#x27;k--&#x27;, linewidth=2.5)  </span><br><span class="line">plt.scatter([x0, ], [y0, ], s=50, color=&#x27;b&#x27;)  </span><br><span class="line">plt.annotate(r&#x27;$2x+1=%s$&#x27; % y0, xy=(x0, y0), xycoords=&#x27;data&#x27;, xytext=(+30, -30),  </span><br><span class="line">textcoords=&#x27;offset points&#x27;, fontsize=16,  </span><br><span class="line">arrowprops=dict(arrowstyle=&#x27;-&gt;&#x27;, connectionstyle=&quot;arc3,rad=.2&quot;))</span><br></pre></td></tr></table></figure>
+<p>其中参数<code>xycoords=&#39;data&#39;</code>是说基于数据的值来选位置,<code>xytext=(+30, -30)</code>和<code>textcoords=&#39;offset points&#39;</code>对于标注位置的描述 和 xy 偏差值,<code>arrowprops</code>是对图中箭头类型的一些设置。</p>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_097d8c011d75eed24ff4826b65621ba4.png"></p>
+<p>此外，还可以使用text。其中<code>-3.7, 3,</code>是选取text的位置, 空格需要用到转字符<code>\</code>,<code>fontdict</code>设置文本字体。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.text(-0.7, 3, &#x27;Man,what can I say?&#x27;,</span><br><span class="line">         fontdict=&#123;&#x27;size&#x27;: 16, &#x27;color&#x27;: &#x27;r&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_7bcdc77fbbf925112bf939ac233bf4d3.png"></p>
+<h2 id="tick-能见度"><a href="#tick-能见度" class="headerlink" title="tick 能见度"></a>tick 能见度</h2><p>现在我们重新生成一张图，特意把线的粗细调得很大，linewidth&#x3D;10，部分信息会被遮挡。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line">  </span><br><span class="line">x = np.linspace(-3, 3, 50)</span><br><span class="line">y = 0.1*x</span><br><span class="line">  </span><br><span class="line">plt.figure()</span><br><span class="line">  </span><br><span class="line">plt.plot(x, y, linewidth=10, zorder=1)</span><br><span class="line">plt.ylim(-2, 2)</span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.spines[&#x27;right&#x27;].set_color(&#x27;none&#x27;)</span><br><span class="line">ax.spines[&#x27;top&#x27;].set_color(&#x27;none&#x27;)</span><br><span class="line">ax.spines[&#x27;top&#x27;].set_color(&#x27;none&#x27;)</span><br><span class="line">ax.xaxis.set_ticks_position(&#x27;bottom&#x27;)</span><br><span class="line">ax.spines[&#x27;bottom&#x27;].set_position((&#x27;data&#x27;, 0))</span><br><span class="line">ax.yaxis.set_ticks_position(&#x27;left&#x27;)</span><br><span class="line">ax.spines[&#x27;left&#x27;].set_position((&#x27;data&#x27;, 0))</span><br><span class="line">  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>可以对被遮挡的图像调节相关透明度，本例中，设置x轴和y轴的刻度数字进行透明度设置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for label in ax.get_xticklabels() + ax.get_yticklabels():</span><br><span class="line">    label.set_fontsize(12)</span><br><span class="line">    label.set_bbox(dict(facecolor=&#x27;white&#x27;, edgecolor=&#x27;None&#x27;, alpha=0.7, zorder=2))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>其中label.set_fontsize(12)重新调节字体大小，bbox设置目的内容的透明度相关参，facecolor调节 box 前景色，edgecolor 设置边框， 设置边框为无，alpha设置透明度。</p>
+<p>最终结果如下:</p>
+<h1 id="画图种类"><a href="#画图种类" class="headerlink" title="画图种类"></a>画图种类</h1><h2 id="Scatter-散点图"><a href="#Scatter-散点图" class="headerlink" title="Scatter 散点图"></a>Scatter 散点图</h2><p>首先，先引入matplotlib.pyplot简写作plt,再引入模块numpy用来产生一些随机数据。生成1024个呈标准正态分布的二维数据组 (平均数是0，方差为1) 作为一个数据集，并图像化这个数据集。每一个点的颜色值用T来表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line">  </span><br><span class="line">n = 1024    # data size</span><br><span class="line">X = np.random.normal(0, 1, n) # 每一个点的X值</span><br><span class="line">Y = np.random.normal(0, 1, n) # 每一个点的Y值</span><br><span class="line">T = np.arctan2(Y,X) # for color value</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<p>数据集生成完毕，现在来用散点图画出这个点集。输入X和Y作为location，size&#x3D;75，颜色为T，color map用默认值，透明度alpha 为 50%。 x轴显示范围定位(-1.5，1.5)，并用xtick()函数来隐藏x坐标轴，y轴同理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(X, Y, s=75, c=T, alpha=.5)</span><br><span class="line">  </span><br><span class="line">plt.xlim(-1.5, 1.5)</span><br><span class="line">plt.xticks(())  # ignore xticks</span><br><span class="line">plt.ylim(-1.5, 1.5)</span><br><span class="line">plt.yticks(())  # ignore yticks</span><br><span class="line">  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>生成效果如图所示：</p>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_cf3ad4af4438614dafa0b904df7cb159.png"></p>
+<h2 id="Bar-柱状图"><a href="#Bar-柱状图" class="headerlink" title="Bar 柱状图"></a>Bar 柱状图</h2><p>还是先向上向下分别生成12个数据，X为 0 到 11的整数 ，Y是相应的均匀分布的随机数据。</p>
+<p>这里使用的函数是plt.bar，参数为X和Y。下面我们就颜色和数值进行优化。 用facecolor设置主体颜色，edgecolor设置边框颜色为白色，用函数plt.text分别在柱体上方（下方）加上数值，用%.2f保留两位小数，横向居中对齐ha&#x3D;’center’，纵向底部（顶部）对齐va&#x3D;’bottom’：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">n = 12</span><br><span class="line">X = np.arange(n)</span><br><span class="line">Y1 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)</span><br><span class="line">Y2 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)</span><br><span class="line"></span><br><span class="line">plt.bar(X, +Y1)</span><br><span class="line">plt.bar(X, -Y2)</span><br><span class="line"></span><br><span class="line">plt.xlim(-.5, n)</span><br><span class="line">plt.xticks(())</span><br><span class="line">plt.ylim(-1.25, 1.25)</span><br><span class="line">plt.yticks(())</span><br><span class="line"></span><br><span class="line">plt.bar(X, +Y1, facecolor=&#x27;#9999ff&#x27;, edgecolor=&#x27;white&#x27;)</span><br><span class="line">plt.bar(X, -Y2, facecolor=&#x27;#ff9999&#x27;, edgecolor=&#x27;white&#x27;)</span><br><span class="line"></span><br><span class="line">for x, y in zip(X, Y1):</span><br><span class="line">    # ha: horizontal alignment</span><br><span class="line">    # va: vertical alignment</span><br><span class="line">    plt.text(x + 0.4, y + 0.05, &#x27;%.2f&#x27; % y, ha=&#x27;center&#x27;, va=&#x27;bottom&#x27;)</span><br><span class="line"></span><br><span class="line">for x, y in zip(X, Y2):</span><br><span class="line">    # ha: horizontal alignment</span><br><span class="line">    # va: vertical alignment</span><br><span class="line">    plt.text(x + 0.4, -y - 0.05, &#x27;%.2f&#x27; % y, ha=&#x27;center&#x27;, va=&#x27;top&#x27;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_7e99b650cd3b64169b6429c0293ea24a.png"></p>
+<h2 id="Image-图片"><a href="#Image-图片" class="headerlink" title="Image 图片"></a>Image 图片</h2><p>用这样 3x4的 2D-array 来表示点的颜色，每一个点就是一个pixel。</p>
+<p>这里我们使用的是内插法中的 Nearest-neighbor的方法，其他的方式也都可以随意取选，如下图所示。</p>
+<p> <img src="https://markdown.liuchengtu.com/work/uploads/upload_0f191f76ef6a8871b22cba622e6f6259.png"></p>
+<p>添加一个colorbar ，添加shrink参数，使colorbar的长度变短为原来的92%。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line">  </span><br><span class="line">a = np.array([0.313, 0.365, 0.22,0.22,</span><br><span class="line">              0.365, 0.439, 0.525,0.33,</span><br><span class="line">              0.423, 0.125, 0.651,0.14]).reshape(3,4)</span><br><span class="line">  </span><br><span class="line">plt.imshow(a, interpolation=&#x27;nearest&#x27;, cmap=&#x27;bone&#x27;, origin=&#x27;lower&#x27;)</span><br><span class="line">plt.colorbar(shrink=.92)</span><br><span class="line">  </span><br><span class="line">plt.xticks(())</span><br><span class="line">plt.yticks(())</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_7ca8ad43fb185a359d6d9566a73ec041.png"></p>
+<p>Matplotlib中有许多内置的颜色映射可供选择，更改cmap即可。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.imshow(a, interpolation=&#x27;nearest&#x27;, cmap=&#x27;Purples&#x27;, origin=&#x27;lower&#x27;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_26dfc32fc43fc2c703b4e3a8f9214aca.png"></p>
+<h2 id="3D-图"><a href="#3D-图" class="headerlink" title="3D 图"></a>3D 图</h2><p>在进行<code>3D Plot</code>时除了导入<code>matplotlib</code>，还要额外添加一个模块，即<code>Axes 3D</code>，3D 坐标轴显示。之后要先定义一个图像窗口，在窗口上添加3D坐标轴。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np  </span><br><span class="line">import matplotlib.pyplot as plt  </span><br><span class="line">from mpl_toolkits.mplot3d import Axes3D  </span><br><span class="line">  </span><br><span class="line"># 生成数据  </span><br><span class="line">x = np.linspace(-5, 5, 100)  </span><br><span class="line">y = np.linspace(-5, 5, 100)  </span><br><span class="line">x, y = np.meshgrid(x, y)  </span><br><span class="line">z = np.sin(np.sqrt(x**2 + y**2))  </span><br><span class="line">  </span><br><span class="line"># 创建3D图形  </span><br><span class="line">fig = plt.figure()  </span><br><span class="line">ax = fig.add_subplot(111, projection=&#x27;3d&#x27;)  </span><br><span class="line">  </span><br><span class="line"># 绘制曲面，并指定彩虹色调的色彩映射  </span><br><span class="line">ax.plot_surface(x, y, z, rstride=1, cstride=1, cmap=plt.get_cmap(&#x27;rainbow&#x27;))  </span><br><span class="line">  </span><br><span class="line"># 显示图形  </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_38e8752250224fd41e542c04a85e60db.png"></p>
+<h1 id="多图联合显示"><a href="#多图联合显示" class="headerlink" title="多图联合显示"></a>多图联合显示</h1><h2 id="多合一显示"><a href="#多合一显示" class="headerlink" title="多合一显示"></a>多合一显示</h2><p>matplotlib 是可以组合许多的小图, 放在一张大图里面显示的。 使用到的方法叫作 subplot。</p>
+<p>使用plt.subplot来创建小图。plt.subplot(2,2,1)表示：将整个图像窗口分为2行2列, 当前选择的位置为1。</p>
+<p>然后就可以在这个位置画任意类型的图了！</p>
+<p>这里使用plt.subplot(2,1,1)将整个图像窗口分为2行1列, 当前位置为1，画一个柱状图。然后使用plt.subplot(2,3,4)将整个图像窗口分为2行3列, 当前位置为4，使用plt.plot([0,1],[0,2])在第4个位置创建一个小图。</p>
+<p>上一步中使用plt.subplot(2,1,1)将整个图像窗口分为2行1列, 第1个小图占用了第1个位置, 也就是整个第1行。 这一步中使用plt.subplot(2,3,4)将整个图像窗口分为2行3列, 于是整个图像窗口的第1行就变成了3列, 也就是成了3个位置, 于是第2行的第1个位置是整个图像窗口的第4个位置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">n = 12</span><br><span class="line">X = np.arange(n)</span><br><span class="line">Y1 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)</span><br><span class="line">Y2 = (1 - X / float(n)) * np.random.uniform(0.5, 1.0, n)</span><br><span class="line"></span><br><span class="line">plt.subplot(2,1,1)</span><br><span class="line">plt.bar(X, +Y1)</span><br><span class="line">plt.bar(X, -Y2)</span><br><span class="line">for x, y in zip(X, Y1):</span><br><span class="line">    # ha: horizontal alignment</span><br><span class="line">    # va: vertical alignment</span><br><span class="line">    plt.text(x + 0.4, y + 0.05, &#x27;%.2f&#x27; % y, ha=&#x27;center&#x27;, va=&#x27;bottom&#x27;)</span><br><span class="line"></span><br><span class="line">for x, y in zip(X, Y2):</span><br><span class="line">    # ha: horizontal alignment</span><br><span class="line">    # va: vertical alignment</span><br><span class="line">    plt.text(x + 0.4, -y - 0.05, &#x27;%.2f&#x27; % y, ha=&#x27;center&#x27;, va=&#x27;top&#x27;)</span><br><span class="line"></span><br><span class="line">plt.subplot(2,3,4)</span><br><span class="line">plt.plot([0,1],[0,2])</span><br><span class="line"></span><br><span class="line">plt.subplot(235)</span><br><span class="line">plt.plot([0,1],[0,3])</span><br><span class="line"></span><br><span class="line">plt.subplot(236)</span><br><span class="line">plt.plot([0,1],[0,4])</span><br><span class="line"></span><br><span class="line">plt.show()  # 展示</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>效果如下，仍可微调。</p>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_6e14105716005e290853977f58cad11c.png"></p>
+<h2 id="图中图"><a href="#图中图" class="headerlink" title="图中图"></a>图中图</h2><p>首先是一些准备工作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 导入pyplot模块</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"># 初始化figure</span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line"># 创建数据</span><br><span class="line">x = [1, 2, 3, 4, 5, 6, 7]</span><br><span class="line">y = [1, 3, 4, 2, 5, 8, 6]</span><br></pre></td></tr></table></figure>
+
+<p>先绘制大图。首先确定大图左下角的位置以及宽高。注意，4个值都是占整个<code>figure</code>坐标系的百分比。在这里，假设<code>figure</code>的大小是10x10，那么大图就被包含在由(1, 1)开始，宽8，高8的坐标系内。</p>
+<p>将大图坐标系添加到<code>figure</code>中，颜色为r(red)，取名为title。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">left, bottom, width, height = 0.1, 0.1, 0.8, 0.8</span><br><span class="line"></span><br><span class="line">ax1 = fig.add_axes([left, bottom, width, height])</span><br><span class="line">ax1.plot(x, y, &#x27;r&#x27;)</span><br><span class="line">ax1.set_xlabel(&#x27;x&#x27;)</span><br><span class="line">ax1.set_ylabel(&#x27;y&#x27;)</span><br><span class="line">ax1.set_title(&#x27;title&#x27;)</span><br></pre></td></tr></table></figure>
+<p>效果是这样的：<br><img src="https://markdown.liuchengtu.com/work/uploads/upload_016bb10de5224d2b1361a621bcc501d7.png"></p>
+<p>接着绘制左上角的小图，步骤和绘制大图一样，注意坐标系位置和大小的改变：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">left, bottom, width, height = 0.2, 0.6, 0.25, 0.25  </span><br><span class="line">ax2 = fig.add_axes([left, bottom, width, height])  </span><br><span class="line">ax2.plot(y, x, &#x27;b&#x27;)  </span><br><span class="line">ax2.set_xlabel(&#x27;x&#x27;)  </span><br><span class="line">ax2.set_ylabel(&#x27;y&#x27;)  </span><br><span class="line">ax2.set_title(&#x27;title inside 1&#x27;) #居然不支持中文</span><br></pre></td></tr></table></figure>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_33d60895cd59c417813339351566ad29.png"></p>
+<p>最后绘制右下角的小图。这里我们采用一种更简单的方法，即直接往plt里添加新的坐标系：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.axes([0.6, 0.2, 0.25, 0.25])  </span><br><span class="line">plt.plot(y[::-1], x, &#x27;g&#x27;) # 注意对y进行了逆序处理  </span><br><span class="line">plt.xlabel(&#x27;x&#x27;)  </span><br><span class="line">plt.ylabel(&#x27;y&#x27;)  </span><br><span class="line">plt.title(&#x27;title inside 2&#x27;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_de4f36fb1b2b0acd4a387445dee73db1.png"></p>
+<h2 id="次坐标轴"><a href="#次坐标轴" class="headerlink" title="次坐标轴"></a>次坐标轴</h2><p>有时候我们会用到次坐标轴，即在同个图上有第2个y轴存在。同样可以用matplotlib做到，而且很简单。</p>
+<p>还是做一些准备工作：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line">x = np.arange(0, 10, 0.1)</span><br><span class="line">y1 = 0.05 * x**2</span><br><span class="line">y2 = -1 * y1</span><br><span class="line">fig, ax1 = plt.subplots()</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，<code>y2</code>和<code>y1</code>是互相倒置的。接着获取figure默认的坐标系<code>ax1</code>。</p>
+<p>对<code>ax1</code>调用<code>twinx()</code>方法，生成如同镜面效果后的<code>ax2</code>，接着进行绘图, 将<code>y1</code>,<code>y2</code>分别画在<code>ax1</code>,<code>ax2</code>上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ax2 = ax1.twinx()</span><br><span class="line"></span><br><span class="line">ax1.plot(x, y1, &#x27;g-&#x27;)   # green, solid line</span><br><span class="line">ax1.set_xlabel(&#x27;X data&#x27;)</span><br><span class="line">ax1.set_ylabel(&#x27;Y1 data&#x27;, color=&#x27;g&#x27;)</span><br><span class="line">ax2.plot(x, y2, &#x27;b-&#x27;) # blue</span><br><span class="line">ax2.set_ylabel(&#x27;Y2 data&#x27;, color=&#x27;b&#x27;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>如图所示：</p>
+<p><img src="https://markdown.liuchengtu.com/work/uploads/upload_09c69a7260827b820e5d494c512b9818.png"></p>
+<p>基础操作笔记到此为止。</p>
+<p>以上。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">计算机视觉</a></div><div class="post_share"><div class="social-share" data-image="/img/matplotlib.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdnjs.sourcegcdn.com/ajax/libs/social-share.js/1.0.16/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdnjs.sourcegcdn.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js" defer></script></div></div><div class="end is-center">end</div><div id="post-comment"><div class="comment-head is-center"><div class="comment-headline"><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head_sculpture.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">L1ttleQing</div><div class="author-info__description">越悲怆的时候我越想嬉皮</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/L1ttleQing"><i class="fab fa-github"></i><span>主页</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/L1ttleQing" target="_blank" title="fab fa-github"></a><a class="social-icon" href="tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=820314438&amp;website=www.oicqzone.com" target="_blank" title="fab fa-qq"></a><a class="social-icon" href="mailto:820314438@qq.com" target="_blank" title="fas fa-envelope-open-text"></a><a class="social-icon" href="https://space.bilibili.com/26528101" target="_blank" title="fab fa-bilibili"></a><a class="social-icon" href="weixin://dl/w19183660929" target="_blank" title="fab fa-weixin"></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">重构了界面，去除冗余结构，哦耶！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">简介与安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text">基础操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8Efigure"><span class="toc-number">2.2.</span> <span class="toc-text">关于figure</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%9D%90%E6%A0%87%E8%BD%B4"><span class="toc-number">2.3.</span> <span class="toc-text">设置坐标轴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Legend-%E5%9B%BE%E4%BE%8B"><span class="toc-number">2.4.</span> <span class="toc-text">Legend 图例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annotation%E6%A0%87%E6%B3%A8"><span class="toc-number">2.5.</span> <span class="toc-text">Annotation标注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tick-%E8%83%BD%E8%A7%81%E5%BA%A6"><span class="toc-number">2.6.</span> <span class="toc-text">tick 能见度</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%BB%E5%9B%BE%E7%A7%8D%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">画图种类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scatter-%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-number">3.1.</span> <span class="toc-text">Scatter 散点图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bar-%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="toc-number">3.2.</span> <span class="toc-text">Bar 柱状图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Image-%E5%9B%BE%E7%89%87"><span class="toc-number">3.3.</span> <span class="toc-text">Image 图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-%E5%9B%BE"><span class="toc-number">3.4.</span> <span class="toc-text">3D 图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E5%9B%BE%E8%81%94%E5%90%88%E6%98%BE%E7%A4%BA"><span class="toc-number">4.</span> <span class="toc-text">多图联合显示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%90%88%E4%B8%80%E6%98%BE%E7%A4%BA"><span class="toc-number">4.1.</span> <span class="toc-text">多合一显示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E4%B8%AD%E5%9B%BE"><span class="toc-number">4.2.</span> <span class="toc-text">图中图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AC%A1%E5%9D%90%E6%A0%87%E8%BD%B4"><span class="toc-number">4.3.</span> <span class="toc-text">次坐标轴</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/10/31/%E8%B9%89%E8%B7%8E%E5%8E%BB/" title="蹉跎去"><img src="/img/ctqq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="蹉跎去"/></a><div class="content"><a class="title" href="/2025/10/31/%E8%B9%89%E8%B7%8E%E5%8E%BB/" title="蹉跎去">蹉跎去</a><time datetime="2025-10-31T03:09:00.000Z" title="发表于 2025-10-31 11:09:00">2025-10-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/22/%E5%AE%B9%E6%98%93%E8%8E%AB%E7%9B%B8%E5%82%AC/" title="容易莫相催"><img src="/img/ctq.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="容易莫相催"/></a><div class="content"><a class="title" href="/2025/02/22/%E5%AE%B9%E6%98%93%E8%8E%AB%E7%9B%B8%E5%82%AC/" title="容易莫相催">容易莫相催</a><time datetime="2025-02-22T03:09:00.000Z" title="发表于 2025-02-22 11:09:00">2025-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/02/08/1Springboot/" title="笔记 SpringBoot"><img src="/img/springboot.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记 SpringBoot"/></a><div class="content"><a class="title" href="/2025/02/08/1Springboot/" title="笔记 SpringBoot">笔记 SpringBoot</a><time datetime="2025-02-08T08:09:00.000Z" title="发表于 2025-02-08 16:09:00">2025-02-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/28/1mybatis/" title="笔记 Mybatis/plus"><img src="/img/mb.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="笔记 Mybatis/plus"/></a><div class="content"><a class="title" href="/2025/01/28/1mybatis/" title="笔记 Mybatis/plus">笔记 Mybatis/plus</a><time datetime="2025-01-28T08:09:00.000Z" title="发表于 2025-01-28 16:09:00">2025-01-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/22/%E8%8B%8D%E8%8C%AB%E6%9D%A5%E6%97%B6/" title="苍茫来时"><img src="/img/cmls.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="苍茫来时"/></a><div class="content"><a class="title" href="/2025/01/22/%E8%8B%8D%E8%8C%AB%E6%9D%A5%E6%97%B6/" title="苍茫来时">苍茫来时</a><time datetime="2025-01-21T19:09:10.000Z" title="发表于 2025-01-22 03:09:10">2025-01-22</time></div></div></div></div></div></div></main><div id="content_rightside"><div id="rightside-toc"><div class="toc-box"></div></div></div></div><footer id="footer"><div class="wordcount"><span>L1ttleQing已经写了207.5k字。</span></br><span>相当于写完了一本巴金的《寒夜》</span></div><div class="footer-content"><div style="font-size: 0.7rem"><span id="timeDate">载入天数...</span><span> </span><span id="times">载入时分秒...</span><script src="/js/add/duration.js"></script></div></div></footer></div><div id="rightside"></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    let initData = {
+      el: '#vcomment',
+      appId: 'fymxlpNGPzfrWOWcfY71mwBV-gzGzoHsz',
+      appKey: 'I0VLNN103CyrzIXBIh7eFsH5',
+      placeholder: '昵称为必填项...',
+      avatar: 'mp',
+      meta: 'nick,mail'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: true,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+    }
+
+    if (true) { 
+      initData.requiredFields= ('nick,mail'.split(','))
+    }
+    
+    if (false) {
+      const otherData = false
+      initData = Object.assign(initData, otherData)
+    }
+    
+    const valine = new Valine(initData)
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn1.tianli0.top/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async src="//at.alicdn.com/t/font_2749059_1lswi5j6yqg.js"></script><script src="/js/add/nav.js"></script><script src="/js/add/leftsidemenu.js"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn1.tianli0.top/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script src="https://cdn1.tianli0.top/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
